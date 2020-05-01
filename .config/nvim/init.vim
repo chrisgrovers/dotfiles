@@ -1,8 +1,6 @@
 "   { { Plugins } }
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-
 " Shorthand notation;
 Plug 'junegunn/vim-easy-align'
 
@@ -51,6 +49,7 @@ Plug 'arthurxavierx/vim-caser'
 
 " { { Conquer of Completion 'Make your Vim/Neovim as smart as VSCode.' } }
 " Use release branch (Recommend)
+" Settings in coc-settings.json
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " { { Better syntax highlighting } }
@@ -60,7 +59,7 @@ Plug 'jparise/vim-graphql'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'lepture/vim-jinja'
 
-" { { Auto lose brackets/quotes } }
+" { { Auto close brackets/quotes } }
 Plug 'jiangmiao/auto-pairs'
 
 " { { Better Status Line } } 
@@ -78,7 +77,51 @@ call plug#end()
 " Shortcut to format json :FormatJSON
 com! FormatJSON %!python -m json.tool
 
-" { { PLUGIN OPTIONS } }
+" { { THEME OPTIONS } }
+set termguicolors           " NeoSolarized requirement
+color gruvbox               " Color scheme
+set encoding=UTF-8          " Setting for vim-devicons
+
+" ======= VIM OPTIONS =======
+set nocompatible            " disable compatibility to old-time vi
+filetype plugin indent on   " allows auto-indenting depending on file type
+runtime macros/matchit.vim  " Enhances '%' functionality to jump to matching brackets/tags
+set clipboard+=unnamedplus  " ALWAYS use system clipboard
+set showmatch               " show matching brackets.
+set ignorecase              " case insensitive matching
+set mouse=v                 " middle-click paste with mouse
+set hlsearch                " highlight search results
+set tabstop=2               " number of columns occupied by a tab character
+set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
+set expandtab               " converts tabs to white space
+set shiftwidth=2            " width for autoindents
+set showmatch               " show matching bracket
+set autoindent              " indent a new line the same amount as the line just typed
+set number relativenumber   " add line numbers
+set wildmode=longest,list   " get bash-like tab completios
+set inccommand=nosplit      " live edit search/replace
+set foldmethod=syntax
+set foldlevel=20
+set mouse=a
+syntax on                   " syntax highlighting
+set splitbelow splitright   " Open splits in the expected place
+set directory^=~/.config/nvim/swap/
+
+
+" { { Split Navigation shortcuts } }
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" { { For simple sizing of splits. } }
+map <silent> <C-Down> <C-W>5-
+map <silent> <C-Up> <C-W>5+
+map <silent> <C-Right> <C-W>5>
+map <silent> <C-Left> <C-W>5<
+
+
+" ======= PLUGIN OPTIONS =======
 "
 " { { DevIcons settings } }
 let g:webdevicons_conceal_nerdtree_brackets = 1               
@@ -94,6 +137,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
 
+" WIP, this is kind of broken at the moment
 " " sync open file with NERDTree
 " " Check if NERDTree is open or active
 " function! IsNERDTreeOpen()        
@@ -123,35 +167,6 @@ noremap <C-a> :CtrlP ~/source/<CR>
 let g:ctrlp_show_hidden = 1
 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-set termguicolors           " NeoSolarized requirement
-color gruvbox          " Color scheme
-set encoding=UTF-8          " Setting for vim-devicons
-
-" { { VIM OPTIONS } }
-set nocompatible            " disable compatibility to old-time vi
-filetype plugin indent on   " allows auto-indenting depending on file type
-runtime macros/matchit.vim  " Enhances '%' functionality to jump to matching brackets/tags
-set clipboard+=unnamedplus  " ALWAYS use system clipboard
-set showmatch               " show matching brackets.
-set ignorecase              " case insensitive matching
-set mouse=v                 " middle-click paste with mouse
-set hlsearch                " highlight search results
-set tabstop=2               " number of columns occupied by a tab character
-set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
-set expandtab               " converts tabs to white space
-set shiftwidth=2            " width for autoindents
-set showmatch               " show matching bracket
-set autoindent              " indent a new line the same amount as the line just typed
-set number relativenumber   " add line numbers
-set wildmode=longest,list   " get bash-like tab completios
-set inccommand=nosplit       " live edit search/replace
-set foldmethod=syntax
-set foldlevel=20
-set mouse=a
-syntax on                   " syntax highlighting
-set splitbelow splitright
-set directory^=~/.config/nvim/swap/
 
 " { { COC.NVIM CONFIGS: } }
 " TextEdit might fail if hidden is not set.
@@ -233,11 +248,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-" set statusline^=%f %{coc#status()}%{get(b:,'coc_current_function','')}
-
 " Mappings using CoCList:
 " Show all diagnostics.
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -255,19 +265,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-
-" { { Split Navigation shortcuts } }
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" { { For simple sizing of splits. } }
-map <silent> <C-Down> <C-W>5-
-map <silent> <C-Up> <C-W>5+
-map <silent> <C-Right> <C-W>5>
-map <silent> <C-Left> <C-W>5<
 
 " { { NOTES/CHRIS-PRO-TIPS } }
 " CTRL-L => Redraw screen. Use after accidental CMD+K
