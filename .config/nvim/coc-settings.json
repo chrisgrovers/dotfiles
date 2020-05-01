@@ -1,0 +1,28 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "json",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "typescript.tsx",
+    "css",
+    "Markdown"
+  ],
+  "coc.preferences.hoverTarget": "float",
+  "diagnostic.infoSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.errorSign": "•",
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "typescript.tsx" 
+  ],
+  "prettier.eslintIntegration": true,
+  "prettier.requireConfig": true,
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "tsserver.npm":"/usr/bin/npm"
+}
