@@ -268,6 +268,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " { { NOTES/CHRIS-PRO-TIPS } }
 " CTRL-L => Redraw screen. Use after accidental CMD+K
-" :so $MYVIMRC -OR- :source ~/.vimrc => reload .vimrc without quitting
+" :so $MYVIMRC -OR- :source ~/.config/nvim/init.vim => reload init.vim without quitting
 
 
