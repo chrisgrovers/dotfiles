@@ -120,6 +120,9 @@ map <silent> <C-Up> <C-W>5+
 map <silent> <C-Right> <C-W>5>
 map <silent> <C-Left> <C-W>5<
 
+" { { Reload settings without closing } }
+nnoremap <Leader>r :source $MYVIMRC<CR>
+
 
 " ======= PLUGIN OPTIONS =======
 "
