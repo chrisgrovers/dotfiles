@@ -1,11 +1,12 @@
 "   { { Plugins } }
 call plug#begin('~/.vim/plugged')
 
-" Shorthand notation;
+" Shorthand notation
 Plug 'junegunn/vim-easy-align'
 
+" Disabled in favor of FZF. Giving it a test run as of 5/5/2020
 " ctrl + p
-Plug 'ctrlpvim/ctrlp.vim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'ctrlpvim/ctrlp.vim', { 'do': ':UpdateRemotePlugins' }
 
 " { { Themes } }
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -19,15 +20,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " { { tComm, file type sensible comments } }
 Plug 'tomtom/tcomment_vim'
-" Plug 'preservim/nerdcommenter'
 
 " { { fzf Fuzzy find: a general-purpose command-line fuzzy finder } }
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " { { YEEZY YEEZY WATS GOOD, Silver Searcher in the flesh, the official wave searcher } }
-" NOTE: Currently disabled in favor of FZF
-" Plug 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
 " { { TPOPE IS MY HERO } }
 " Vim casing/working with variants of a word. Mainly for coercion (cr[case])
@@ -63,7 +62,9 @@ Plug 'lepture/vim-jinja'
 Plug 'jiangmiao/auto-pairs'
 
 " { { Better Status Line } } 
-Plug 'vim-airline/vim-airline'
+" currently disabled because heavy. trying out lightline
+" Plug 'vim-airline/vim-airline' 
+Plug 'itchyny/lightline.vim'
 
 " { { Discord Rich Presence } }
 Plug 'hugolgst/vimsence'
@@ -78,35 +79,33 @@ call plug#end()
 com! FormatJSON %!python -m json.tool
 
 " { { THEME OPTIONS } }
-set termguicolors           " NeoSolarized requirement
-color gruvbox               " Color scheme
-set encoding=UTF-8          " Setting for vim-devicons
+set termguicolors  " NeoSolarized requirement
+color NeoSolarized " Color scheme
+set encoding=UTF-8 " Setting for vim-devicons
 
 " ======= VIM OPTIONS =======
-set nocompatible            " disable compatibility to old-time vi
-filetype plugin indent on   " allows auto-indenting depending on file type
-runtime macros/matchit.vim  " Enhances '%' functionality to jump to matching brackets/tags
-set clipboard+=unnamedplus  " ALWAYS use system clipboard
-set showmatch               " show matching brackets.
-set ignorecase              " case insensitive matching
-set mouse=v                 " middle-click paste with mouse
-set hlsearch                " highlight search results
-set tabstop=2               " number of columns occupied by a tab character
-set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
-set expandtab               " converts tabs to white space
-set shiftwidth=2            " width for autoindents
-set showmatch               " show matching bracket
-set autoindent              " indent a new line the same amount as the line just typed
-set number relativenumber   " add line numbers
-set wildmode=longest,list   " get bash-like tab completios
-set inccommand=nosplit      " live edit search/replace
-set foldmethod=syntax
-set foldlevel=20
-set mouse=a
-syntax on                   " syntax highlighting
-set splitbelow splitright   " Open splits in the expected place
+set nocompatible           " disable compatibility to old-time vi
+filetype plugin indent on  " allows auto-indenting depending on file type
+runtime macros/matchit.vim " Enhances '%' functionality to jump to matching brackets/tags
+set autoindent             " indent a new line the same amount as the line just typed
+set clipboard+=unnamedplus " ALWAYS use system clipboard
 set directory^=~/.config/nvim/swap/
-
+set expandtab              " converts tabs to white space
+set foldlevel=20
+set foldmethod=syntax
+set hlsearch               " highlight search results
+set ignorecase             " case insensitive matching
+set inccommand=nosplit     " live edit search/replace
+set mouse=a                " Enable mouse... Yes, I did it.
+set number relativenumber  " add line numbers
+set shiftwidth=2           " width for autoindents
+set showmatch              " show matching brackets.
+set ignorecase             " smart case matching
+set softtabstop=2          " see multiple spaces as tabstops so <BS> does the right thing
+set splitbelow splitright  " Open splits in the expected place
+set tabstop=2              " number of columns occupied by a tab character
+set wildmode=longest,list  " get bash-like tab completions
+syntax on                  " syntax highlighting
 
 " { { Split Navigation shortcuts } }
 nnoremap <C-J> <C-W><C-J>
@@ -122,7 +121,7 @@ map <silent> <C-Left> <C-W>5<
 
 
 " ======= PLUGIN OPTIONS =======
-"
+
 " { { DevIcons settings } }
 let g:webdevicons_conceal_nerdtree_brackets = 1               
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
@@ -132,10 +131,18 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
 autocmd StdinReadPre * let s:std_in=1
+" Auto open nerdtree on nvim start 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
+
+" { { Lighline } }
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
+      \ }
+      \ }
 
 " WIP, this is kind of broken at the moment
 " " sync open file with NERDTree
@@ -158,15 +165,16 @@ autocmd FileType nerdtree setlocal relativenumber
 
 " { { Silver Surfer } }
 nnoremap \ :Ag<SPACE>
-" Use Ag over Grep
+" Use Ag over grep
 set grepprg=ag\ --nogroup\ --nocolor
+" FZF view
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;36"', fzf#vim#with_preview(), <bang>0)
 
-" { { ctrl+p } }
+
+" { { FZF } }
 " ctrl+p remap ctrl+a to search from source
-noremap <C-a> :CtrlP ~/source/<CR>
-let g:ctrlp_show_hidden = 1
-" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+noremap <C-a> :Files ~/source/
+nnoremap <silent> <C-p> :GFiles<CR>
 
 " { { COC.NVIM CONFIGS: } }
 " TextEdit might fail if hidden is not set.
@@ -257,8 +265,6 @@ nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
