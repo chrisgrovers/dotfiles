@@ -4,10 +4,6 @@ call plug#begin('~/.vim/plugged')
 " Shorthand notation
 Plug 'junegunn/vim-easy-align'
 
-" Disabled in favor of FZF. Giving it a test run as of 5/5/2020
-" ctrl + p
-" Plug 'ctrlpvim/ctrlp.vim', { 'do': ':UpdateRemotePlugins' }
-
 " { { Themes } }
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'iCyMind/NeoSolarized'
@@ -26,7 +22,7 @@ Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " { { YEEZY YEEZY WATS GOOD, Silver Searcher in the flesh, the official wave searcher } }
-Plug 'rking/ag.vim'
+" Plug 'rking/ag.vim'
 
 " { { TPOPE IS MY HERO } }
 " Vim casing/working with variants of a word. Mainly for coercion (cr[case])
@@ -66,9 +62,6 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'vim-airline/vim-airline' 
 Plug 'itchyny/lightline.vim'
 
-" { { Discord Rich Presence } }
-Plug 'hugolgst/vimsence'
-
 " { { Vim devicons } } 
 Plug 'ryanoasis/vim-devicons'
 
@@ -107,6 +100,9 @@ set tabstop=2              " number of columns occupied by a tab character
 set wildmode=longest,list  " get bash-like tab completions
 syntax on                  " syntax highlighting
 
+" { { Leader key } }
+let mapleader =" "
+
 " { { Split Navigation shortcuts } }
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -120,7 +116,7 @@ map <silent> <C-Right> <C-W>5>
 map <silent> <C-Left> <C-W>5<
 
 " { { Reload settings without closing } }
-nnoremap <Leader>r :source $MYVIMRC<CR>
+nnoremap <Leader>r :so $MYVIMRC<CR>
 
 
 " ======= PLUGIN OPTIONS =======
@@ -133,12 +129,15 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 " { { NERDTREE OPTIONS } }
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
-autocmd StdinReadPre * let s:std_in=1
-" Auto open nerdtree on nvim start 
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+augroup NerdTree
+  autocmd! 
+  autocmd StdinReadPre * let s:std_in=1
+  " Auto open nerdtree on nvim start 
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" make sure relative line numbers are used
-autocmd FileType nerdtree setlocal relativenumber
+  " make sure relative line numbers are used
+  autocmd FileType nerdtree setlocal relativenumber
+augroup END
 
 " { { Lighline } }
 let g:lightline = {
@@ -166,18 +165,28 @@ let g:lightline = {
 " " Highlight currently open buffer in NERDTree
 " autocmd BufEnter * call SyncTree()
 
-" { { Silver Surfer } }
-nnoremap \ :Ag<SPACE>
-" Use Ag over grep
-set grepprg=ag\ --nogroup\ --nocolor
-" FZF view
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;36"', fzf#vim#with_preview(), <bang>0)
+" " { { Silver Surfer } }
+" nnoremap \ :Ag<SPACE>
+" " Use Ag over grep
+" set grepprg=ag\ --nogroup\ --nocolor
+" " FZF view
+" command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;36"', fzf#vim#with_preview(), <bang>0)
 
+" { { Ripgrep } }
+"
+nnoremap \ :Rg<SPACE>
+" Tell FZF to use RG - so we can skip .gitignore files even if not using
+" :GitFiles search
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+
+" If you want gitignored files:
+"let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
 
 " { { FZF } }
 " ctrl+p remap ctrl+a to search from source
 noremap <C-a> :Files ~/source/
-nnoremap <silent> <C-p> :GFiles<CR>
+nnoremap <silent> <C-p> :Files<CR>
+
 
 " { { COC.NVIM CONFIGS: } }
 " TextEdit might fail if hidden is not set.
@@ -233,11 +242,11 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
-augroup mygroup
+augroup CoCGroup 
   autocmd!
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent call CocActionAsync('highlight')
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder.
@@ -274,6 +283,11 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" { { Reload nerdtree icons (fixes brackets showing after resourcing) } }
+if exists("g:loaded_webdevicons")
+  call webdevicons#refresh()
+endif
 
 " { { NOTES/CHRIS-PRO-TIPS } }
 " CTRL-L => Redraw screen. Use after accidental CMD+K
