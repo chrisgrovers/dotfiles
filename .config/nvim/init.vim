@@ -54,6 +54,9 @@ Plug 'jparise/vim-graphql'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'lepture/vim-jinja'
 
+" { { VimWiki  } }
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+
 " { { Auto close brackets/quotes } }
 Plug 'jiangmiao/auto-pairs'
 
@@ -145,6 +148,11 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
       \ }
       \ }
+
+" { { VimWiki } }
+" All notes saved as markdown
+let g:vimwiki_list = [{ 'path': '~/Documents/notes/',
+       \ 'syntax':'markdown', 'ext': '.md' }]
 
 " WIP, this is kind of broken at the moment
 " " sync open file with NERDTree
