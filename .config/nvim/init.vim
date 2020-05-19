@@ -80,7 +80,6 @@ color NeoSolarized " Color scheme
 set encoding=UTF-8 " Setting for vim-devicons
 
 " ======= VIM OPTIONS =======
-set nocompatible                        " disable compatibility to old-time vi
 filetype plugin indent on               " allows auto-indenting depending on file type
 runtime macros/matchit.vim              " Enhances '%' functionality to jump to matching brackets/tags
 set autoindent                          " indent a new line the same amount as the line just typed
