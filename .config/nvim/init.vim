@@ -1,9 +1,6 @@
 "   { { Plugins } }
 call plug#begin('~/.vim/plugged')
 
-" Shorthand notation
-Plug 'junegunn/vim-easy-align'
-
 " { { Themes } }
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'iCyMind/NeoSolarized'
@@ -53,9 +50,12 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'jparise/vim-graphql'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'lepture/vim-jinja'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " { { VimWiki  } }
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+Plug 'mattn/calendar-vim'
 
 " { { Auto close brackets/quotes } }
 Plug 'jiangmiao/auto-pairs'
@@ -80,31 +80,37 @@ color NeoSolarized " Color scheme
 set encoding=UTF-8 " Setting for vim-devicons
 
 " ======= VIM OPTIONS =======
-set nocompatible           " disable compatibility to old-time vi
-filetype plugin indent on  " allows auto-indenting depending on file type
-runtime macros/matchit.vim " Enhances '%' functionality to jump to matching brackets/tags
-set autoindent             " indent a new line the same amount as the line just typed
-set clipboard+=unnamedplus " ALWAYS use system clipboard
+set nocompatible                        " disable compatibility to old-time vi
+filetype plugin indent on               " allows auto-indenting depending on file type
+runtime macros/matchit.vim              " Enhances '%' functionality to jump to matching brackets/tags
+set autoindent                          " indent a new line the same amount as the line just typed
+set clipboard+=unnamedplus              " ALWAYS use system clipboard
 set directory^=~/.config/nvim/swap/
-set expandtab              " converts tabs to white space
-set foldlevel=20
+set expandtab                           " converts tabs to white space
 set foldmethod=syntax
-set hlsearch               " highlight search results
-set ignorecase             " case insensitive matching
-set inccommand=nosplit     " live edit search/replace
-set mouse=a                " Enable mouse... Yes, I did it.
-set number relativenumber  " add line numbers
-set shiftwidth=2           " width for autoindents
-set showmatch              " show matching brackets.
-set ignorecase             " smart case matching
-set softtabstop=2          " see multiple spaces as tabstops so <BS> does the right thing
-set splitbelow splitright  " Open splits in the expected place
-set tabstop=2              " number of columns occupied by a tab character
-set wildmode=longest,list  " get bash-like tab completions
-syntax on                  " syntax highlighting
+set nofoldenable
+set foldlevel=2
+set hlsearch                            " highlight search results
+set ignorecase                          " case insensitive matching
+set inccommand=nosplit                  " live edit search/replace
+set mouse=a                             " Enable mouse... Yes, I did it.
+set number relativenumber               " add line numbers
+set shiftwidth=2                        " width for autoindents
+set showmatch                           " show matching brackets.
+set ignorecase                          " smart case matching
+set softtabstop=2                       " see multiple spaces as tabstops so <BS> does the right thing
+set splitbelow splitright               " Open splits in the expected place
+set tabstop=2                           " number of columns occupied by a tab character
+set wildmode=longest,list               " get bash-like tab completions
+let g:markdown_folding_style = 'nested' " Enable markdown folding
+let javaScript_fold=1                   " enable javascript folding
+syntax on                               " syntax highlighting
 
 " { { Leader key } }
 let mapleader =" "
+
+" { { Ez access to settings } }
+nnoremap <Leader>, :e $MYVIMRC<cr>
 
 " { { Split Navigation shortcuts } }
 nnoremap <C-J> <C-W><C-J>
@@ -120,7 +126,6 @@ map <silent> <C-Left> <C-W>5<
 
 " { { Reload settings without closing } }
 nnoremap <Leader>r :so $MYVIMRC<CR>
-
 
 " ======= PLUGIN OPTIONS =======
 
@@ -151,8 +156,18 @@ let g:lightline = {
 
 " { { VimWiki } }
 " All notes saved as markdown
-let g:vimwiki_list = [{ 'path': '~/Documents/notes/',
-       \ 'syntax':'markdown', 'ext': '.md' }]
+let g:vimwiki_list = [{ 
+      \ 'path': '~/Dropbox/notes/',
+      \ 'syntax':'markdown', 
+      \ 'ext': '.md' }]
+" Copy content of template to file
+nmap <leader>notes :r ~/Dropbox/notes/template/notes.md<CR>
+
+" augroup diaryTemplate
+"   au!
+"   autocmd BufNewFile *.md silent! 0r ~/Dropbox/notes/templates/diary.md '%'
+"
+" augroup END
 
 " WIP, this is kind of broken at the moment
 " " sync open file with NERDTree
@@ -180,13 +195,11 @@ let g:vimwiki_list = [{ 'path': '~/Documents/notes/',
 " " FZF view
 " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;36"', fzf#vim#with_preview(), <bang>0)
 
-" { { Ripgrep } }
-"
+" { { Ripgrep LET IT RIIIIIPPPPPPPPPP } }
 nnoremap \ :Rg<SPACE>
 " Tell FZF to use RG - so we can skip .gitignore files even if not using
 " :GitFiles search
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-
 " If you want gitignored files:
 "let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
 
