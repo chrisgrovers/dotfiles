@@ -2,12 +2,20 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/cgrovers/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 POWERLEVEL9K_MODE="awesome-patched"
+
+ulimit -n 65536 65536
+
+# Android emulation settings
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -31,6 +39,8 @@ export VISUAL=nvim
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias vim='nvim'
+# This doesn't work, since swap files are saved in my neovim directory
+# alias cleanswap='find . -type f -name "*.sw[klmnop]" -delete'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -48,4 +58,24 @@ eval "$(direnv hook zsh)"
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-alias config='/usr/bin/git --git-dir=/Users/cgrovers/dotfiles --work-tree=/Users/cgrovers'
+ulimit -n 10240
+
+# I think this is no longer useful... 
+# TODO: Remove this
+export AWS_PROFILE='nwdev'
+
+# Magic local work dev setup
+alias runnav="cd ~/source/global-nav && sed -i '' 's/license/version/' package.json && sed -i '' 's/UNLICENSED/9.9.9/' package.json && npm run build && npm pack && cp nerdwallet-global-nav-9.9.9.tgz ../global-markup/ && cd ../global-markup/ && npm install ./nerdwallet-global-nav-9.9.9.tgz && npm run dev"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Git dotfile configs
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+
+config config --local status.showUntrackedFiles no
+
+
+# Work config
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
