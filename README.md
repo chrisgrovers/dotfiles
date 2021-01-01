@@ -9,6 +9,7 @@ TODO:
 - [ ] auto-install nvim
 - [ ] throw this in an executable
 - [ ] Update the references to home directories to be more modular
+- [ ] Add links to getting git set up on machines
 
 
 Paste this bad boy in the console to get started (WIP):
