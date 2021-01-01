@@ -32,3 +32,4 @@ config checkout
 ```
 
 Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+Install [RipGrep](https://github.com/BurntSushi/ripgrep)
