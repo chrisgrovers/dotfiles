@@ -30,3 +30,5 @@ fi;
 config checkout
 
 ```
+
+Install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
