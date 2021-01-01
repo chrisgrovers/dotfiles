@@ -11,8 +11,8 @@
   ],
   "coc.preferences.hoverTarget": "float",
   "diagnostic.infoSign": "•",
-  "diagnostic.warningSign": "•",
-  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "~",
+  "diagnostic.errorSign": "!",
   "eslint.filetypes": [
     "javascript",
     "typescript",
