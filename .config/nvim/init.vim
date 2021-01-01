@@ -7,6 +7,9 @@ Plug 'iCyMind/NeoSolarized'
 Plug 'chuling/vim-equinusocio-material'
 Plug 'morhetz/gruvbox'
 
+" { { Display colors } }
+Plug 'ap/vim-css-color'
+
 " { { Nerdtree } }
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -47,6 +50,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " { { Better syntax highlighting } }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'pangloss/vim-javascript'
 Plug 'jparise/vim-graphql'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'lepture/vim-jinja'
@@ -57,11 +61,12 @@ Plug 'plasticboy/vim-markdown'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 
+" { { Vim Org Mode } }
+Plug 'jceb/vim-orgmode'
+
 " { { Auto close brackets/quotes } }
 Plug 'jiangmiao/auto-pairs'
 
-" { { Better Status Line } } 
-" currently disabled because heavy. trying out lightline
 " Plug 'vim-airline/vim-airline' 
 Plug 'itchyny/lightline.vim'
 
@@ -76,35 +81,40 @@ com! FormatJSON %!python -m json.tool
 
 " { { THEME OPTIONS } }
 set termguicolors  " NeoSolarized requirement
-color NeoSolarized " Color scheme
+color gruvbox " Color scheme
 set encoding=UTF-8 " Setting for vim-devicons
 
+"
 " ======= VIM OPTIONS =======
-filetype plugin indent on               " allows auto-indenting depending on file type
-runtime macros/matchit.vim              " Enhances '%' functionality to jump to matching brackets/tags
-set autoindent                          " indent a new line the same amount as the line just typed
-set clipboard+=unnamedplus              " ALWAYS use system clipboard
-set directory^=~/.config/nvim/swap/
-set expandtab                           " converts tabs to white space
+"
+filetype plugin indent on           " allows auto-indenting depending on file type
+runtime macros/matchit.vim          " Enhances '%' functionality to jump to matching brackets/tags
+set autoindent                      " indent a new line the same amount as the line just typed
+set clipboard+=unnamedplus          " ALWAYS use system clipboard
+set directory^=~/.config/nvim/swap/ " Swap file directory
+set expandtab                       " converts tabs to white space
 set foldmethod=syntax
 set nofoldenable
 set foldlevel=2
-set hlsearch                            " highlight search results
-set ignorecase                          " case insensitive matching
-set inccommand=nosplit                  " live edit search/replace
-set mouse=a                             " Enable mouse... Yes, I did it.
-set number relativenumber               " add line numbers
-set shiftwidth=2                        " width for autoindents
-set showmatch                           " show matching brackets.
-set ignorecase                          " smart case matching
-set softtabstop=2                       " see multiple spaces as tabstops so <BS> does the right thing
-set splitbelow splitright               " Open splits in the expected place
-set tabstop=2                           " number of columns occupied by a tab character
-set wildmode=longest,list               " get bash-like tab completions
-let g:markdown_folding_style = 'nested' " Enable markdown folding
-let javaScript_fold=1                   " enable javascript folding
-syntax on                               " syntax highlighting
+set hlsearch                        " highlight search results
+set ignorecase                      " case insensitive matching
+set inccommand=nosplit              " live edit search/replace
+set mouse=a                         " Enable mouse... Yes, I did it.
+set number                          " add line numbers
+set shiftwidth=2                    " width for autoindents
+set showmatch matchtime=3           " show matching brackets.
+set ignorecase                      " smart case matching
+set softtabstop=2                   " see multiple spaces as tabstops so <BS> does the right thing
+set splitbelow splitright           " Open splits in the expected place
+set tabstop=2                       " number of columns occupied by a tab character
+set wildmode=longest,list           " get bash-like tab completions
+let javaScript_fold=1               " enable javascript folding
+syntax on                           " syntax highlighting
 
+
+" 
+" ======== REMAP KEYS ========
+"
 " { { Leader key } }
 let mapleader =" "
 
@@ -126,8 +136,9 @@ map <silent> <C-Left> <C-W>5<
 " { { Reload settings without closing } }
 nnoremap <Leader>r :so $MYVIMRC<CR>
 
+"
 " ======= PLUGIN OPTIONS =======
-
+"
 " { { DevIcons settings } }
 let g:webdevicons_conceal_nerdtree_brackets = 1               
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
@@ -145,28 +156,6 @@ augroup NerdTree
   " make sure relative line numbers are used
   autocmd FileType nerdtree setlocal relativenumber
 augroup END
-
-" { { Lighline } }
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
-      \ }
-      \ }
-
-" { { VimWiki } }
-" All notes saved as markdown
-let g:vimwiki_list = [{ 
-      \ 'path': '~/Dropbox/notes/',
-      \ 'syntax':'markdown', 
-      \ 'ext': '.md' }]
-" Copy content of template to file
-nmap <leader>notes :r ~/Dropbox/notes/template/notes.md<CR>
-
-" augroup diaryTemplate
-"   au!
-"   autocmd BufNewFile *.md silent! 0r ~/Dropbox/notes/templates/diary.md '%'
-"
-" augroup END
 
 " WIP, this is kind of broken at the moment
 " " sync open file with NERDTree
@@ -187,6 +176,27 @@ nmap <leader>notes :r ~/Dropbox/notes/template/notes.md<CR>
 " " Highlight currently open buffer in NERDTree
 " autocmd BufEnter * call SyncTree()
 
+" { { Lightline } }
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'absolutepath', 'modified' ] ],
+      \ }
+      \ }
+
+" { { VimWiki } }
+" All notes saved as markdown
+let g:vimwiki_list = [{ 
+      \ 'path': '~/Dropbox/notes/',
+      \ 'syntax':'markdown', 
+      \ 'folding':'syntax',
+      \ 'ext': '.md' }]
+let g:vimwiki_folding='custom'
+" Copy content of template to file
+nmap <leader>notes :r ~/Dropbox/notes/templates/notes.md<CR>
+nmap <leader>diary :.r ~/Dropbox/notes/templates/diary.md<CR> <leader>date
+nmap <leader>standup :r ~/Dropbox/notes/templates/standup.md<CR>
+nmap <leader>date :put =strftime('# %a %b %d')<CR>
+
 " " { { Silver Surfer } }
 " nnoremap \ :Ag<SPACE>
 " " Use Ag over grep
@@ -206,7 +216,9 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 " ctrl+p remap ctrl+a to search from source
 noremap <C-a> :Files ~/source/
 nnoremap <silent> <C-p> :Files<CR>
-
+" map cmd+p, because this is what devtools does, and I hit it constantly
+" inside of vim
+nnoremap <silent> <D-p> :Files<CR>
 
 " { { COC.NVIM CONFIGS: } }
 " TextEdit might fail if hidden is not set.
@@ -262,7 +274,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-
 augroup CoCGroup 
   autocmd!
   " Highlight the symbol and its references when holding the cursor.
@@ -308,9 +319,4 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
-
-" { { NOTES/CHRIS-PRO-TIPS } }
-" CTRL-L => Redraw screen. Use after accidental CMD+K
-" :so $MYVIMRC -OR- :source ~/.config/nvim/init.vim => reload init.vim without quitting
-
 
