@@ -7,6 +7,11 @@ Following the setup as outlined [here](https://www.atlassian.com/git/tutorials/d
 TODO: 
 - [ ] auto-install zsh
 - [ ] auto-install nvim
+- [ ] auto-install vim-plugged
+```
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 - [ ] throw this in an executable
 - [ ] Update the references to home directories to be more modular
 - [ ] Add links to getting git set up on machines
