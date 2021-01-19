@@ -186,15 +186,15 @@ let g:lightline = {
 " { { VimWiki } }
 " All notes saved as markdown
 let g:vimwiki_list = [{ 
-      \ 'path': '~/Dropbox/notes/',
+      \ 'path': '~/notes/',
       \ 'syntax':'markdown', 
       \ 'folding':'syntax',
       \ 'ext': '.md' }]
 let g:vimwiki_folding='custom'
 " Copy content of template to file
-nmap <leader>notes :r ~/Dropbox/notes/templates/notes.md<CR>
-nmap <leader>diary :.r ~/Dropbox/notes/templates/diary.md<CR> <leader>date
-nmap <leader>standup :r ~/Dropbox/notes/templates/standup.md<CR>
+nmap <leader>notes :r ~/notes/templates/notes.md<CR>
+nmap <leader>diary :.r ~/notes/templates/diary.md<CR> <leader>date
+nmap <leader>standup :r ~/notes/templates/standup.md<CR>
 nmap <leader>date :put =strftime('# %a %b %d')<CR>
 
 " " { { Silver Surfer } }
