@@ -39,6 +39,8 @@ export VISUAL=nvim
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias vim='nvim'
+alias vi='nvim'
+alias cim='nvim'
 # This doesn't work, since swap files are saved in my neovim directory
 # alias cleanswap='find . -type f -name "*.sw[klmnop]" -delete'
 
@@ -59,13 +61,6 @@ eval "$(direnv hook zsh)"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 ulimit -n 10240
-
-# I think this is no longer useful... 
-# TODO: Remove this
-export AWS_PROFILE='nwdev'
-
-# Magic local work dev setup
-alias runnav="cd ~/source/global-nav && sed -i '' 's/license/version/' package.json && sed -i '' 's/UNLICENSED/9.9.9/' package.json && npm run build && npm pack && cp nerdwallet-global-nav-9.9.9.tgz ../global-markup/ && cd ../global-markup/ && npm install ./nerdwallet-global-nav-9.9.9.tgz && npm run dev"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
