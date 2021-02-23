@@ -1,5 +1,13 @@
+" TODO:
+" Break out into multiple files (/sets.vim, /plugins.vim, /etc.vim)
+
 "   { { Plugins } }
 call plug#begin('~/.vim/plugged')
+" TODO:
+" Check out https://github.com/nvim-telescope/telescope.nvim over fzf
+" Check out https://github.com/neovim/nvim-lspconfig over coc
+" Check out https://github.com/nvim-treesitter/nvim-treesitter
+" Check out https://github.com/mbbill/undotree (This bad boy looks cool)
 
 " { { Themes } }
 Plug 'dracula/vim', { 'as': 'dracula' }
