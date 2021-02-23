@@ -111,6 +111,13 @@ set wildmode=longest,list           " get bash-like tab completions
 let javaScript_fold=1               " enable javascript folding
 syntax on                           " syntax highlighting
 
+" TODO/TO ADD:
+" These are based off Mr. ThePrimeagen's 2021 vimrc video  https://www.youtube.com/watch?v=DogKdiRx7ls
+" set noswapfile " swapfiles have become a pain, and get in the way more often than I use them
+" set undodir=~/.vim/undodir " Check this one out, on the fence about it
+" set nohlsearch " turn off highlight after searching
+" set scrolloff=8 " scroll before hitting the bottom of a page
+
 
 " 
 " ======== REMAP KEYS ========
