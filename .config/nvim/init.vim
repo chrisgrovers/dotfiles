@@ -97,34 +97,34 @@ set encoding=UTF-8 " Setting for vim-devicons
 "
 filetype plugin indent on           " allows auto-indenting depending on file type
 runtime macros/matchit.vim          " Enhances '%' functionality to jump to matching brackets/tags
+let javaScript_fold=1               " enable javascript folding
 set autoindent                      " indent a new line the same amount as the line just typed
 set clipboard+=unnamedplus          " ALWAYS use system clipboard
 set directory^=~/.config/nvim/swap/ " Swap file directory
 set expandtab                       " converts tabs to white space
-set foldmethod=syntax
-set nofoldenable
 set foldlevel=2
+set foldmethod=syntax
 set hlsearch                        " highlight search results
 set ignorecase                      " case insensitive matching
+set ignorecase                      " smart case matching
 set inccommand=nosplit              " live edit search/replace
 set mouse=a                         " Enable mouse... Yes, I did it.
+set nofoldenable
+set nohlsearch                      " turn off highlight after searching
+set noswapfile                      " swapfiles have become a pain, and get in the way more often than I use them
 set number                          " add line numbers
+set scrolloff=8                     " scroll before hitting the bottom of a page
 set shiftwidth=2                    " width for autoindents
 set showmatch matchtime=3           " show matching brackets.
-set ignorecase                      " smart case matching
 set softtabstop=2                   " see multiple spaces as tabstops so <BS> does the right thing
 set splitbelow splitright           " Open splits in the expected place
 set tabstop=2                       " number of columns occupied by a tab character
 set wildmode=longest,list           " get bash-like tab completions
-let javaScript_fold=1               " enable javascript folding
 syntax on                           " syntax highlighting
 
 " TODO/TO ADD:
 " These are based off Mr. ThePrimeagen's 2021 vimrc video  https://www.youtube.com/watch?v=DogKdiRx7ls
-" set noswapfile " swapfiles have become a pain, and get in the way more often than I use them
 " set undodir=~/.vim/undodir " Check this one out, on the fence about it
-" set nohlsearch " turn off highlight after searching
-" set scrolloff=8 " scroll before hitting the bottom of a page
 
 
 " 
