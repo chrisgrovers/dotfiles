@@ -110,7 +110,6 @@ set ignorecase                      " smart case matching
 set inccommand=nosplit              " live edit search/replace
 set mouse=a                         " Enable mouse... Yes, I did it.
 set nofoldenable
-set nohlsearch                      " turn off highlight after searching
 set noswapfile                      " swapfiles have become a pain, and get in the way more often than I use them
 set number                          " add line numbers
 set scrolloff=8                     " scroll before hitting the bottom of a page
