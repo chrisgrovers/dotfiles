@@ -64,7 +64,6 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'lepture/vim-jinja'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-" TODO: @chris add this in ->  Plug 'jparise/vim-graphql'
 
 " { { VimWiki  } }
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
