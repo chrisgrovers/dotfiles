@@ -25,7 +25,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 plugins=(git node)
 
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # manually set language environment
@@ -33,6 +32,9 @@ export LANG=en_US.UTF-8
 
 export EDITOR=nvim
 export VISUAL=nvim
+
+# Dev setting for nw
+export AWS_PROFILE='nwdev'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
