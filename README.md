@@ -18,7 +18,7 @@ TODO:
 
 ## To get started
 - [ ] install [oh-my-zsh](https://ohmyz.sh/#install)
-- [ ] install [powerlevel10k](https://github.com/romkatv/powerlevel10k#manual)
+- [ ] install [powerlevel10k](https://github.com/romkatv/powerlevel10k#oh-my-zsh)
 - [ ] install [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - [ ] install [vim-plugged](https://github.com/junegunn/vim-plug#installation)
 
