@@ -41,3 +41,4 @@ config checkout
 ```
 
 - [ ] After setting up, configure git following [this guide](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+- [ ] paste `git config --global credential.helper store` to store the newly generated access token
