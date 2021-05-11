@@ -18,6 +18,10 @@ Plug 'morhetz/gruvbox'
 " { { Display colors } }
 Plug 'ap/vim-css-color'
 
+" { { Questionable, cursed plugins } }
+" Neovim on Browser inputs
+Plug 'glacambre/firenvim', { 'do': { _ -> firevim#install(0) } }
+
 " { { Nerdtree } }
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -164,31 +168,24 @@ let NERDTreeShowHidden=1
 augroup NerdTree
   autocmd! 
   autocmd StdinReadPre * let s:std_in=1
-  " Auto open nerdtree on nvim start 
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-  " make sure relative line numbers are used
-  autocmd FileType nerdtree setlocal relativenumber
 augroup END
 
-" WIP, this is kind of broken at the moment
-" " sync open file with NERDTree
-" " Check if NERDTree is open or active
-" function! IsNERDTreeOpen()        
-"   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-" endfunction
-"
-" " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" " file, and we're not in vimdiff
-" function! SyncTree()
-"   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-"     NERDTreeFind
-"     wincmd p
-"   endif
-" endfunction
-"
-" " Highlight currently open buffer in NERDTree
-" autocmd BufEnter * call SyncTree()
+" { { Firenvim } }
+au BufEnter github.com_*.txt set filetype=markdown
+let g:firenvim_config = { 
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'content': 'text',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'never',
+        \ },
+    \ }
+\ }
 
 " { { Lightline } }
 let g:lightline = {
@@ -205,10 +202,13 @@ let g:vimwiki_list = [{
       \ 'folding':'syntax',
       \ 'ext': '.md' }]
 let g:vimwiki_folding='custom'
+" { { Notes Temmplates } }
 " Copy content of template to file
 nmap <leader>notes :r ~/notes/templates/notes.md<CR>
 nmap <leader>diary :.r ~/notes/templates/diary.md<CR> <leader>date
 nmap <leader>standup :r ~/notes/templates/standup.md<CR>
+nmap <leader>interview :r ~/notes/templates/interview.md<CR>
+" Helpers
 nmap <leader>date :put =strftime('# %a %b %d')<CR>
 
 " " { { Silver Surfer } }
@@ -333,4 +333,14 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
+let g:coc_global_extension = [
+                \'coc-eslint',
+                \'coc-json',
+                \'coc-pairs',
+                \'coc-prettier'
+\]
+"let g:prettier#config#config_precedence = 'file-override'
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+xmap <leader>p :Prettier<CR>
+nmap <leader>p :Prettier<CR>
 
