@@ -19,7 +19,7 @@ TODO:
 ## To get started
 - [ ] install [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
 - [ ] install [powerlevel10k](https://github.com/romkatv/powerlevel10k#manual)
-- [ ] install [vim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- [ ] install [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - [ ] install [vim-plugged](https://github.com/junegunn/vim-plug#installation)
 
 Paste this bad boy in the console to get started (WIP):
@@ -39,3 +39,5 @@ fi;
 config checkout
 
 ```
+
+- [ ] After setting up, configure git following [this guide](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
