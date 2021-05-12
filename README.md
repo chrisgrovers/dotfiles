@@ -5,14 +5,6 @@
 Following the setup as outlined [here](https://www.atlassian.com/git/tutorials/dotfiles)
 
 TODO: 
-
-```
-  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-- [ ] throw this in an executable
-- [ ] Update the references to home directories to be more modular
-- [ ] Add links to getting git set up on machines
 - [ ] Check out nvim 0.5, and do cool lua stuffs
 
 
@@ -21,6 +13,7 @@ TODO:
 - [ ] install [powerlevel10k](https://github.com/romkatv/powerlevel10k#oh-my-zsh)
 - [ ] install [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - [ ] install [vim-plugged](https://github.com/junegunn/vim-plug#installation)
+- [ ] install [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 
 Paste this bad boy in the console to get started (WIP):
 ```
