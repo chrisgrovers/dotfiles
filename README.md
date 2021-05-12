@@ -5,6 +5,7 @@
 Following the setup as outlined [here](https://www.atlassian.com/git/tutorials/dotfiles)
 
 TODO: 
+- [ ] Check out TMUX
 - [ ] Check out nvim 0.5, and do cool lua stuffs
 
 
