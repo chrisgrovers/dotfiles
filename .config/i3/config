@@ -19,7 +19,7 @@ font pango:monospace 10
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -182,3 +182,24 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+### Custom configs ###
+
+# Lock i3
+bindsym $mod+shift+x exec i3lok
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# wallpaper
+exec_always --no-startup-id feh --bg-scale $HOME/Camera/Wallpapers/neon-genesis.png
