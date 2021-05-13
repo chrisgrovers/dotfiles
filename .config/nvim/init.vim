@@ -13,7 +13,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'iCyMind/NeoSolarized'
 Plug 'chuling/vim-equinusocio-material'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 " { { Display colors } }
 Plug 'ap/vim-css-color'
@@ -230,9 +230,6 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 " ctrl+p remap ctrl+a to search from source
 noremap <C-a> :Files ~/source/
 nnoremap <silent> <C-p> :Files<CR>
-" map cmd+p, because this is what devtools does, and I hit it constantly
-" inside of vim
-nnoremap <silent> <D-p> :Files<CR>
 
 " { { COC.NVIM CONFIGS: } }
 " TextEdit might fail if hidden is not set.
