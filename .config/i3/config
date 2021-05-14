@@ -177,8 +177,7 @@ bindsym $mod+r mode "resize"
 bar {
   status_command i3blocks -c ~/.config/i3/i3blocks.conf
   position top
-  font pango:DejaVu Sans Mono 10
-
+  font pango:DejaVu Sans Mono 18
   colors {
 		background $bg-color
 	    	separator #757575
