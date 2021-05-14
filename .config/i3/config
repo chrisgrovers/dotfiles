@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
-font pango:System San Francisco Display 8
+font pango:System San Francisco Display 12
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -217,7 +217,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # wallpaper
-exec_always --no-startup-id feh --bg-scale $HOME/Camera/Wallpapers/neon-genesis.png
+exec_always --no-startup-id feh --bg-scale $HOME/Wallpapers/neon-genesis.png
 exec_always --no-startup-id gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}, {'Xft/DPI', <196608>}, {'Xcursor/Size', <25000>}, {'Xcursor/size', <25000>}]"
 
 # custom configs
