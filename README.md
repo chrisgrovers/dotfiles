@@ -10,11 +10,15 @@ TODO:
 
 
 ## To get started
-- [ ] install [oh-my-zsh](https://ohmyz.sh/#install)
-- [ ] install [powerlevel10k](https://github.com/romkatv/powerlevel10k#oh-my-zsh)
-- [ ] install [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
-- [ ] install [vim-plugged](https://github.com/junegunn/vim-plug#installation)
-- [ ] install [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+- [ ] [install oh-my-zsh](https://ohmyz.sh/#install)
+- [ ] [install powerlevel10k](https://github.com/romkatv/powerlevel10k#oh-my-zsh)
+- [ ] [install neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- [ ] [install vim-plugged](https://github.com/junegunn/vim-plug#installation)
+- [ ] [install ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+
+## For linux/i3
+- [Install font](https://github.com/supermarin/YosemiteSanFranciscoFont)
+- [Install Rofi](https://github.com/davatorium/rofi/blob/next/INSTALL.md#install-a-checkout-from-git)
 
 Paste this bad boy in the console to get started (WIP):
 ```
