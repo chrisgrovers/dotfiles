@@ -7,6 +7,9 @@ Following the setup as outlined [here](https://www.atlassian.com/git/tutorials/d
 TODO: 
 - [ ] Check out TMUX
 - [ ] Check out nvim 0.5, and do cool lua stuffs
+- [ ] i3blocks:
+  - [ ] Fix fonts not displaying
+  - [ ] Split configs into desktop and laptop (potentially differnt branches)
 
 
 ## To get started
@@ -18,6 +21,8 @@ TODO:
 
 ## For linux/i3
 - [Install Rofi](https://github.com/davatorium/rofi/blob/next/INSTALL.md#install-a-checkout-from-git)
+- [Install i3blocks](https://github.com/vivien/i3blocks)
+- [icons](https://snwh.org/moka/download)
 
 Paste this bad boy in the console to get started (WIP):
 ```

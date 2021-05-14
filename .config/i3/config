@@ -48,7 +48,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# dmenu 
+# dmenu/program launcher
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
 bindsym Control+space exec --no-startup-id "rofi -modi drun,run -show drun"
 
@@ -175,7 +175,10 @@ bindsym $mod+r mode "resize"
 
 # Bar settings
 bar {
-  status_command i3status
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+  position top
+  font pango:DejaVu Sans Mono 10
+
   colors {
 		background $bg-color
 	    	separator #757575
@@ -188,6 +191,9 @@ bar {
 
 ### Custom configs ###
 # A lot of this is inspired by: https://www.youtube.com/watch?v=ARKIwOlazKI&list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf&index=19
+
+# lock
+bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # colors
 set $bg-color 	         #2f343f
