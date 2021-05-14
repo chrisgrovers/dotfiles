@@ -180,7 +180,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+  status_command i3status
+  font pango: monospace 16
 }
 
 ### Custom configs ###
@@ -203,3 +204,9 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # wallpaper
 exec_always --no-startup-id feh --bg-scale $HOME/Camera/Wallpapers/neon-genesis.png
+exec_always --no-startup-id gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}, {'Xft/DPI', <196608>}, {'Xcursor/Size', <25000>}, {'Xcursor/size', <25000>}]"
+
+
+# Laptop configs
+exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 25
+exec_always --no-startup-id xrdb -merge /home/greg/.Xresources
