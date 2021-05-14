@@ -17,7 +17,6 @@ TODO:
 - [ ] [install ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 
 ## For linux/i3
-- [Install font](https://github.com/supermarin/YosemiteSanFranciscoFont)
 - [Install Rofi](https://github.com/davatorium/rofi/blob/next/INSTALL.md#install-a-checkout-from-git)
 
 Paste this bad boy in the console to get started (WIP):
