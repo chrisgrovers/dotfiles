@@ -43,7 +43,6 @@ bindsym $mod+Shift+q kill
 
 # dmenu/program launcher
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
-bindsym Control+space exec --no-startup-id "rofi -modi drun,run -show drun"
 
 # change focus
 bindsym $mod+h focus left
@@ -228,6 +227,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # bindsym $mod+comma exec playerctl pause
 # bindsym $mod+] exec playerctl next
 # bindsym $mod+[ exec playerctl previous
+
+# Startup Tasks
+exec --no-startup-id syncthing -no-browser
 
 # wallpaper
 exec_always --no-startup-id feh --bg-scale $HOME/Wallpapers/neon-genesis.png
