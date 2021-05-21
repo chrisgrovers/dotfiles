@@ -17,6 +17,7 @@ Plug 'gruvbox-community/gruvbox'
 
 " { { Display colors } }
 Plug 'ap/vim-css-color'
+Plug 'chrisbra/Colorizer'
 
 " { { Questionable, cursed plugins } }
 " Neovim on Browser inputs
