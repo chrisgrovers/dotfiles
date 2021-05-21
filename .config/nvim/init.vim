@@ -123,7 +123,6 @@ set softtabstop=2                   " see multiple spaces as tabstops so <BS> do
 set splitbelow splitright           " Open splits in the expected place
 set tabstop=2                       " number of columns occupied by a tab character
 set wildmode=longest,list           " get bash-like tab completions
-syntax on                           " syntax highlighting
 
 " TODO/TO ADD:
 " These are based off Mr. ThePrimeagen's 2021 vimrc video  https://www.youtube.com/watch?v=DogKdiRx7ls
