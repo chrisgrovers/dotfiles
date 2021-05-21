@@ -102,19 +102,16 @@ set encoding=UTF-8 " Setting for vim-devicons
 "
 filetype plugin indent on           " allows auto-indenting depending on file type
 runtime macros/matchit.vim          " Enhances '%' functionality to jump to matching brackets/tags
-let javaScript_fold=1               " enable javascript folding
 set autoindent                      " indent a new line the same amount as the line just typed
 set clipboard+=unnamedplus          " ALWAYS use system clipboard
 set directory^=~/.config/nvim/swap/ " Swap file directory
 set expandtab                       " converts tabs to white space
-set foldlevel=2
-set foldmethod=syntax
+set foldmethod=indent
+set nofoldenable
 set hlsearch                        " highlight search results
 set ignorecase                      " case insensitive matching
-set ignorecase                      " smart case matching
 set inccommand=nosplit              " live edit search/replace
 set mouse=a                         " Enable mouse... Yes, I did it.
-set nofoldenable
 set noswapfile                      " swapfiles have become a pain, and get in the way more often than I use them
 set number                          " add line numbers
 set scrolloff=8                     " scroll before hitting the bottom of a page
@@ -128,7 +125,6 @@ set wildmode=longest,list           " get bash-like tab completions
 " TODO/TO ADD:
 " These are based off Mr. ThePrimeagen's 2021 vimrc video  https://www.youtube.com/watch?v=DogKdiRx7ls
 " set undodir=~/.vim/undodir " Check this one out, on the fence about it
-
 
 " 
 " ======== REMAP KEYS ========
