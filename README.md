@@ -11,6 +11,10 @@ TODO:
   - [ ] Fix fonts not displaying
   - [ ] Split configs into desktop and laptop (potentially differnt branches)
 
+## For linux/i3
+- [Install Rofi](https://github.com/davatorium/rofi/blob/next/INSTALL.md#install-a-checkout-from-git)
+- [Install i3blocks](https://github.com/vivien/i3blocks)
+- [icons](https://snwh.org/moka/download)
 
 ## To get started
 - [ ] [install oh-my-zsh](https://ohmyz.sh/#install)
@@ -19,10 +23,6 @@ TODO:
 - [ ] [install vim-plugged](https://github.com/junegunn/vim-plug#installation)
 - [ ] [install ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 
-## For linux/i3
-- [Install Rofi](https://github.com/davatorium/rofi/blob/next/INSTALL.md#install-a-checkout-from-git)
-- [Install i3blocks](https://github.com/vivien/i3blocks)
-- [icons](https://snwh.org/moka/download)
 
 Paste this bad boy in the console to get started (WIP):
 ```
