@@ -203,7 +203,7 @@ let g:vimwiki_folding='custom'
 nmap <leader>notes :r ~/notes/templates/notes.md<CR>
 nmap <leader>diary :.r ~/notes/templates/diary.md<CR> <leader>date
 nmap <leader>standup :r ~/notes/templates/standup.md<CR>
-nmap <leader>interview :r ~/notes/templates/interview.md<CR>
+nmap <leader>int :r ~/notes/templates/interview.md<CR>
 " Helpers
 nmap <leader>date :put =strftime('# %a %b %d')<CR>
 

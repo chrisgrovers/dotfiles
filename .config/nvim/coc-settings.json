@@ -11,23 +11,13 @@
     "typescript.tsx",
     "typescriptreact"
   ],
-  "coc.preferences.hoverTarget": "float",
   "diagnostic.infoSign": "•",
-  "diagnostic.warningSign": "~",
   "diagnostic.errorSign": "!",
-  "eslint.filetypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "javascriptreact",
-    "typescript.tsx" 
-  ],
+  "diagnostic.warningSign": "~",
   "prettier.eslintIntegration": true,
   "prettier.requireConfig": true,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
-  "typescript.updateImportsOnFileMove.enable": true,
-  "javascript.updateImportsOnFileMove.enable": true,
   "tsserver.enable": true,
   "tsserver.npm":"/usr/bin/npm"
 }
