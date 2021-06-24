@@ -1,155 +1,46 @@
 " TODO:
-" Break out into multiple files (/sets.vim, /plugins.vim, /etc.vim)
-
-"   { { Plugins } }
-call plug#begin('~/.vim/plugged')
-" TODO:
-" Check out https://github.com/nvim-telescope/telescope.nvim over fzf
-" Check out https://github.com/neovim/nvim-lspconfig over coc
-" Check out https://github.com/nvim-treesitter/nvim-treesitter
-" Check out https://github.com/mbbill/undotree (This bad boy looks cool)
-
-" { { Themes } }
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'iCyMind/NeoSolarized'
-Plug 'chuling/vim-equinusocio-material'
-Plug 'gruvbox-community/gruvbox'
-
-" { { Display colors } }
-Plug 'ap/vim-css-color'
-Plug 'chrisbra/Colorizer'
-
-" { { Questionable, cursed plugins } }
-" Neovim on Browser inputs
-Plug 'glacambre/firenvim', { 'do': { _ -> firevim#install(0) } }
-
-" { { Nerdtree } }
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" { { tComm, file type sensible comments } }
-Plug 'tomtom/tcomment_vim'
-
-" { { fzf Fuzzy find: a general-purpose command-line fuzzy finder } }
-Plug 'junegunn/fzf', { 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-" { { YEEZY YEEZY WATS GOOD, Silver Searcher in the flesh, the official wave searcher } }
-" Plug 'rking/ag.vim'
-
-" { { TPOPE IS MY HERO } }
-" Vim casing/working with variants of a word. Mainly for coercion (cr[case])
-" commented out in favor of vim-caser, since it has visual mode support
-" Plug 'tpope/vim-abolish'
-" Surround in parens/quotes/XML
-" NOTE: use: cs"' to change " to '
-" NOTE: use ds" to delete surrounding "
-Plug 'tpope/vim-surround'
-" { { Git integration use :Git/:G for commands } }
-Plug 'tpope/vim-fugitive'
-
-" { { Git Gutter } }
-Plug 'airblade/vim-gitgutter'
-
-" { { Better vim casing (includes motion, visual mode, and object support) } }
-" NOTE: use: gs{motion} to change case for a visual selection
-Plug 'arthurxavierx/vim-caser'
-
-" { { Conquer of Completion 'Make your Vim/Neovim as smart as VSCode.' } }
-" Use release branch (Recommend)
-" Settings in coc-settings.json
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" { { Better syntax highlighting } }
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'pangloss/vim-javascript'
-Plug 'jparise/vim-graphql'
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'lepture/vim-jinja'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-
-" { { VimWiki  } }
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-Plug 'mattn/calendar-vim'
-
-" { { Vim Org Mode } }
-Plug 'jceb/vim-orgmode'
-
-" { { Auto close brackets/quotes } }
-Plug 'jiangmiao/auto-pairs'
-
-" Plug 'vim-airline/vim-airline' 
-Plug 'itchyny/lightline.vim'
-
-" { { Vim devicons } } 
-Plug 'ryanoasis/vim-devicons'
-
-" Initialize plugin system
-call plug#end()
+source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/sets.vim
+source $HOME/.config/nvim/remaps.vim
+" source $HOME/.config/nvim/init.lua " one day I'll convert
 
 " Shortcut to format json :FormatJSON
 com! FormatJSON %!python -m json.tool
 
 " { { THEME OPTIONS } }
+" Use :Telescope colorscheme to quick change any color schemes!!
 set termguicolors  " NeoSolarized requirement
+set background=dark
 color gruvbox " Color scheme
 set encoding=UTF-8 " Setting for vim-devicons
-
 "
-" ======= VIM OPTIONS =======
+" =========== LSP CONFIG ==========
 "
-filetype plugin indent on           " allows auto-indenting depending on file type
-runtime macros/matchit.vim          " Enhances '%' functionality to jump to matching brackets/tags
-set autoindent                      " indent a new line the same amount as the line just typed
-set clipboard+=unnamedplus          " ALWAYS use system clipboard
-set directory^=~/.config/nvim/swap/ " Swap file directory
-set expandtab                       " converts tabs to white space
-set foldmethod=indent
-set nofoldenable
-set hlsearch                        " highlight search results
-set ignorecase                      " case insensitive matching
-set inccommand=nosplit              " live edit search/replace
-set mouse=a                         " Enable mouse... Yes, I did it.
-set noswapfile                      " swapfiles have become a pain, and get in the way more often than I use them
-set number                          " add line numbers
-set scrolloff=8                     " scroll before hitting the bottom of a page
-set shiftwidth=2                    " width for autoindents
-set showmatch matchtime=3           " show matching brackets.
-set softtabstop=2                   " see multiple spaces as tabstops so <BS> does the right thing
-set splitbelow splitright           " Open splits in the expected place
-set tabstop=2                       " number of columns occupied by a tab character
-set wildmode=longest,list           " get bash-like tab completions
-
-" TODO/TO ADD:
-" These are based off Mr. ThePrimeagen's 2021 vimrc video  https://www.youtube.com/watch?v=DogKdiRx7ls
-" set undodir=~/.vim/undodir " Check this one out, on the fence about it
-
-" 
-" ======== REMAP KEYS ========
+" lua require('lspconfig').tsserver.setup{ on_attach=on_attach }
+" let g:compe = {}
+" let g:compe.enabled = v:true
+" let g:compe.autocomplete = v:true
+" let g:compe.debug = v:false
+" let g:compe.min_length = 1
+" let g:compe.preselect = 'enable'
+" let g:compe.throttle_time = 80
+" let g:compe.source_timeout = 200
+" let g:compe.resolve_timeout = 800
+" let g:compe.incomplete_delay = 400
+" let g:compe.max_abbr_width = 100
+" let g:compe.max_kind_width = 100
+" let g:compe.max_menu_width = 100
+" let g:compe.documentation = v:true
 "
-" { { Leader key } }
-let mapleader =" "
-
-" { { Ez access to settings } }
-nnoremap <Leader>, :e $MYVIMRC<cr>
-
-" { { Split Navigation shortcuts } }
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" { { For simple sizing of splits. } }
-map <silent> <C-Down> <C-W>5-
-map <silent> <C-Up> <C-W>5+
-map <silent> <C-Right> <C-W>5>
-map <silent> <C-Left> <C-W>5<
-
-" { { Reload settings without closing } }
-nnoremap <Leader>r :so $MYVIMRC<CR>
-
+" let g:compe.source = {}
+" let g:compe.source.path = v:true
+" let g:compe.source.buffer = v:true
+" let g:compe.source.calc = v:true
+" let g:compe.source.nvim_lsp = v:true
+" let g:compe.source.nvim_lua = v:true
+" let g:compe.source.vsnip = v:true
+" let g:compe.source.ultisnips = v:true
+"
 "
 " ======= PLUGIN OPTIONS =======
 "
@@ -166,23 +57,6 @@ augroup NerdTree
   autocmd StdinReadPre * let s:std_in=1
 augroup END
 
-" { { Firenvim } }
-au BufEnter github.com_*.txt set filetype=markdown
-let g:firenvim_config = { 
-    \ 'globalSettings': {
-        \ 'alt': 'all',
-    \  },
-    \ 'localSettings': {
-        \ '.*': {
-            \ 'cmdline': 'neovim',
-            \ 'content': 'text',
-            \ 'priority': 0,
-            \ 'selector': 'textarea',
-            \ 'takeover': 'never',
-        \ },
-    \ }
-\ }
-
 " { { Lightline } }
 let g:lightline = {
       \ 'active': {
@@ -198,35 +72,6 @@ let g:vimwiki_list = [{
       \ 'folding':'syntax',
       \ 'ext': '.md' }]
 let g:vimwiki_folding='custom'
-" { { Notes Temmplates } }
-" Copy content of template to file
-nmap <leader>notes :r ~/notes/templates/notes.md<CR>
-nmap <leader>diary :.r ~/notes/templates/diary.md<CR> <leader>date
-nmap <leader>standup :r ~/notes/templates/standup.md<CR>
-nmap <leader>tps :r ~/notes/templates/tps.md<CR>
-nmap <leader>ntfe :r ~/notes/templates/note taking frontend.md<CR>
-" Helpers
-nmap <leader>date :put =strftime('# %a %b %d')<CR>
-
-" " { { Silver Surfer } }
-" nnoremap \ :Ag<SPACE>
-" " Use Ag over grep
-" set grepprg=ag\ --nogroup\ --nocolor
-" " FZF view
-" command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;36"', fzf#vim#with_preview(), <bang>0)
-
-" { { Ripgrep LET IT RIIIIIPPPPPPPPPP } }
-nnoremap \ :Rg<SPACE>
-" Tell FZF to use RG - so we can skip .gitignore files even if not using
-" :GitFiles search
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-" If you want gitignored files:
-"let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore-vcs --hidden'
-
-" { { FZF } }
-" ctrl+p remap ctrl+a to search from source
-noremap <C-a> :Files ~/source/
-nnoremap <silent> <C-p> :Files<CR>
 
 " { { COC.NVIM CONFIGS: } }
 " TextEdit might fail if hidden is not set.

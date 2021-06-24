@@ -77,4 +77,7 @@ config config --local status.showUntrackedFiles no
 
 # Work config
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
-alias stopgn="docker stop stack_global-markup_1"
+alias stopgm="docker stop stack_global-markup_1"
+alias startgm="docker start stack_global-markup_1"
+alias stopq0="docker stop stack_query0-server_1"
+alias startq0="docker start stack_query0-server_1"
