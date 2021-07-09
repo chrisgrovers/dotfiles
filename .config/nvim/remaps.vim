@@ -45,6 +45,12 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
+" { { File Explorer } }
+" NerdTree
+nnoremap <leader>jk :NERDTree<CR>
+nnoremap <leader>jl :NERDTreeFind<CR>
+
+
 " { { Telescope } }
 " Copy/pasted from the README
 " https://github.com/nvim-telescope/telescope.nvim#usage

@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 " TODO:
 " Check out https://github.com/neovim/nvim-lspconfig over coc
   " Set up shortcuts/remaps
+" Check out [lazygit](https://github.com/jesseduffield/lazygit)
 " Check out https://github.com/nvim-treesitter/nvim-treesitter
 " Check out https://github.com/mbbill/undotree (This bad boy looks cool)
 " ^^^ Pretty much copy what theprimeagen and altf4 stream are doing
