@@ -17,6 +17,7 @@ set noswapfile                      " swapfiles have become a pain, and get in t
 set number                          " add line numbers
 set scrolloff=8                     " scroll before hitting the bottom of a page
 set shiftwidth=2                    " width for autoindents
+set linebreak                       " 
 set showmatch matchtime=3           " show matching brackets.
 set softtabstop=2                   " see multiple spaces as tabstops so <BS> does the right thing
 set splitbelow splitright           " Open splits in the expected place
