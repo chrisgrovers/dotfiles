@@ -3,10 +3,7 @@
 "
 call plug#begin('~/.vim/plugged')
 " TODO:
-" Check out https://github.com/neovim/nvim-lspconfig over coc
   " Set up shortcuts/remaps
-" Check out [lazygit](https://github.com/jesseduffield/lazygit)
-" Check out https://github.com/nvim-treesitter/nvim-treesitter
 " Check out https://github.com/mbbill/undotree (This bad boy looks cool)
 " ^^^ Pretty much copy what theprimeagen and altf4 stream are doing
 " https://github.com/awesome-streamers/awesome-streamerrc
@@ -43,8 +40,8 @@ Plug 'tpope/vim-surround'
 " { { Git integration use :Git/:G for commands } }
 Plug 'tpope/vim-fugitive'
 
-" { { Git Gutter } }
-Plug 'airblade/vim-gitgutter'
+" { { Git Signs } }
+Plug 'lewis6991/gitsigns.nvim'
 
 " { { Better vim casing (includes motion, visual mode, and object support) } }
 " NOTE: use: gs{motion} to change case for a visual selection
@@ -52,12 +49,11 @@ Plug 'arthurxavierx/vim-caser'
 
 " { { Conquer of Completion 'Make your Vim/Neovim as smart as VSCode.' } }
 " Use release branch (Recommend)
-" Settings in coc-settings.json
-" TODO: Remove coc.nvim if nvim-lspconfig is good
 " The coc has served me well. You'll stay here for a while as a comment :')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'hrsh7th/nvim-compe'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'ray-x/lsp_signature.nvim'
 
 " { { Better syntax highlighting } }
 Plug 'leafgarland/typescript-vim'
