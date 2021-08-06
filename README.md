@@ -22,6 +22,7 @@ TODO:
 - [ ] [install neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 - [ ] [install vim-plugged](https://github.com/junegunn/vim-plug#installation)
 - [ ] [install ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+- [ ] [install prettier globally](https://github.com/prettier/prettier)
 
 
 Paste this bad boy in the console to get started (WIP):
