@@ -25,6 +25,9 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+" { { Prettier } }
+Plug 'sbdchd/neoformat'
+
 " { { Treesitter } }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -41,6 +44,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 
 " { { Git Signs } }
+Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 
 " { { Better vim casing (includes motion, visual mode, and object support) } }

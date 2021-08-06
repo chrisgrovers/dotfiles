@@ -17,6 +17,12 @@ require('telescope').setup{
     }
   }
 }
+
+--
+-- { { GITSIGNS } }
+--
+require('gitsigns').setup()
+
 --
 -- { { LSP Signature } }
 --
@@ -36,6 +42,7 @@ local lsp_signature_config = {
 -- { { LSP CONFIG } }
 --
 require('lspconfig').tsserver.setup{ on_attach=on_attach }
+
 EOF
 
 
@@ -49,6 +56,14 @@ let g:compe.source = {
   \ 'buffer': v:true,
   \ 'nvim_lsp': v:true,
   \ }
+
+"
+" { { Prettier } }
+"
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 " { { DevIcons settings } }
 let g:webdevicons_conceal_nerdtree_brackets = 1               
