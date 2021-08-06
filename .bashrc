@@ -9,7 +9,6 @@ fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 alias config='/usr/bin/git --git-dir=/Users/cgrovers/dotfiles --work-tree=/Users/cgrovers'
 
 export NVM_DIR="$HOME/.nvm"
