@@ -73,9 +73,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 
-" { { Vim Org Mode } }
-Plug 'jceb/vim-orgmode'
-
 " { { Auto close brackets/quotes } }
 Plug 'jiangmiao/auto-pairs'
 
