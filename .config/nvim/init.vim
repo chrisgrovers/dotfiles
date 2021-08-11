@@ -1,8 +1,11 @@
-" TODO:
+" INSPIRATION:
+" https://blog.inkdrop.app/how-to-set-up-neovim-0-5-modern-plugins-lsp-treesitter-etc-542c3d9c9887
+
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/plugin-config.vim
 source $HOME/.config/nvim/sets.vim
 source $HOME/.config/nvim/remaps.vim
+source $HOME/.config/nvim/plugin-config.lua
 " source $HOME/.config/nvim/init.lua " one day I'll convert
 
 " Shortcut to format json :FormatJSON

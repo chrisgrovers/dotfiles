@@ -26,7 +26,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " { { Prettier } }
-Plug 'sbdchd/neoformat'
+" Plug 'sbdchd/neoformat'
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " { { Treesitter } }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -77,7 +78,8 @@ Plug 'mattn/calendar-vim'
 Plug 'jiangmiao/auto-pairs'
 
 " Plug 'vim-airline/vim-airline' 
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'hoob3rt/lualine.nvim'
 
 " { { Vim devicons } } 
 Plug 'ryanoasis/vim-devicons'
