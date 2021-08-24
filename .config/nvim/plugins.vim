@@ -54,8 +54,7 @@ Plug 'arthurxavierx/vim-caser'
 
 " { { Conquer of Completion 'Make your Vim/Neovim as smart as VSCode.' } }
 " Use release branch (Recommend)
-" The coc has served me well. You'll stay here for a while as a comment :')
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'ray-x/lsp_signature.nvim'
