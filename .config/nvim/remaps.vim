@@ -49,8 +49,8 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " { { File Explorer } }
 " NerdTree
-nnoremap <leader>jk :NERDTree<CR>
-nnoremap <leader>jl :NERDTreeFind<CR>
+nnoremap <leader>jk :NvimTreeToggle<CR>
+nnoremap <leader>jl :NvimTreeFindFile<CR>
 
 
 " { { Telescope } }

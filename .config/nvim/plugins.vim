@@ -17,8 +17,12 @@ Plug 'ap/vim-css-color'
 Plug 'chrisbra/Colorizer'
 
 " { { Nerdtree } }
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" { { Nvim-tree } }
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+
 
 " { { Telescope } }
 Plug 'nvim-lua/popup.nvim'

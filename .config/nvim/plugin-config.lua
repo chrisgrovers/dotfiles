@@ -32,21 +32,21 @@ require('gitsigns').setup()
 -- { { LSP Signature } }
 --
 -- Default config from the docs
-local lsp_signature_config = {
-  on_attach = function(client, bufnr)
-    require "lsp_signature".on_attach({
-      bind = true, -- This is mandatory, otherwise border config won't get registered.
-      handler_opts = {
-        border = "single"
-      }
-    })
-  end,
-}
+-- local lsp_signature_config = {
+--   on_attach = function(client, bufnr)
+--     require "lsp_signature".on_attach({
+--       bind = true, -- This is mandatory, otherwise border config won't get registered.
+--       handler_opts = {
+--         border = "single"
+--       }
+--     })
+--   end,
+-- }
 
 --
 -- { { LSP CONFIG } }
 --
-lspconfig.tsserver.setup{ on_attach=on_attach }
+-- lspconfig.tsserver.setup{ on_attach=on_attach }
 
 --
 -- { { LUALINE } }
@@ -78,9 +78,17 @@ lualine.setup {
     lualine_b = {},
     lualine_c = {'filename'},
     lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
+    lualine_y = {}, lualine_z = {}
   },
   tabline = {},
   extensions = {'fugitive'}
 }
+
+-- { { NVIM-TREE } }
+require('nvim-tree').setup()
+
+
+
+
+
+

@@ -30,18 +30,18 @@ let g:compe.source = {
 " augroup END
 
 " { { DevIcons settings } }
-let g:webdevicons_conceal_nerdtree_brackets = 1               
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
-let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
-
-" { { NERDTREE OPTIONS } }
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-
-augroup NerdTree
-  autocmd! 
-  autocmd StdinReadPre * let s:std_in=1
-augroup END
+" let g:webdevicons_conceal_nerdtree_brackets = 1               
+" let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
+" let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+"
+" " { { NERDTREE OPTIONS } }
+" let NERDTreeShowLineNumbers=1
+" let NERDTreeShowHidden=1
+"
+" augroup NerdTree
+"   autocmd! 
+"   autocmd StdinReadPre * let s:std_in=1
+" augroup END
 
 " { { Lightline } }
 let g:lightline = {
