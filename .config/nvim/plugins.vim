@@ -29,6 +29,9 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+" { { Nvim-autopairs } }
+Plug 'windwp/nvim-autopairs'
+
 " { { Prettier } }
 " Plug 'sbdchd/neoformat'
 " Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
@@ -78,7 +81,8 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 
 " { { Auto close brackets/quotes } }
-Plug 'jiangmiao/auto-pairs'
+" TODO: @chris nvim-autopairs should be the one. Remove
+" Plug 'jiangmiao/auto-pairs'
 
 " Plug 'vim-airline/vim-airline' 
 " Plug 'itchyny/lightline.vim'

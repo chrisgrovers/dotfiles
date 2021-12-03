@@ -87,6 +87,9 @@ lualine.setup {
 -- { { NVIM-TREE } }
 require('nvim-tree').setup()
 
+-- { { NVIM-AUTOPAIRS } }
+require('nvim-autopairs').setup()
+
 
 
 
