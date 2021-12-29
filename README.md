@@ -27,7 +27,7 @@ TODO:
 
 Paste this bad boy in the console to get started (WIP):
 ```
-git clone --bare https://github.com/chrisgrovers/dotfiles.git $HOME/.dotfiles
+git clone --bare git@github.com:chrisgrovers/dotfiles.git $HOME/.dotfiles
 function config {
    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
