@@ -62,6 +62,9 @@ if [ $OS = "linux-gnu" ]; then
   if [[ ! `which i3blocks` ]]; then
     $INSTALL i3blocks
   fi
+  if [[ ! `which rofi` ]]; then
+    $INSTALL rofi
+  fi
 fi
 
 if [[ ! `which direnv` ]]; then

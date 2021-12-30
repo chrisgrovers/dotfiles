@@ -8,8 +8,6 @@ Following the setup as outlined [here](https://www.atlassian.com/git/tutorials/d
 - [ ] [install prettier globally](https://github.com/prettier/prettier)
 
 ## For linux/i3
-- [Install Rofi](https://github.com/davatorium/rofi/blob/next/INSTALL.md#install-a-checkout-from-git)
-- [Install i3blocks](https://github.com/vivien/i3blocks)
 - [icons](https://snwh.org/moka/download)
 
 ## For MacOS
