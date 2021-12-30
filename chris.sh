@@ -15,6 +15,9 @@ if [ $OS = "linux-gnu" ]; then
     echo ">Arch linux detected"
     INSTALL="pacman -S"
   fi
+elif [ $OS = "" ]; then
+  echo "> All hail our Mac Overlords"
+  INSTALL="brew"
 fi
 if [[ ! $INSTALL ]]; then
   echo ">OS Not supported"
@@ -54,8 +57,12 @@ fi
 
 
 # Linux specific installs here
-# if [ $OS = "linux-gnu" ]; then
-# fi
+if [ $OS = "linux-gnu" ]; then
+  # Install i3blocks
+  if [[ ! `which i3blocks` ]]; then
+    $INSTALL i3blocks
+  fi
+fi
 
 if [[ ! `which direnv` ]]; then
   $INSTALL direnv
@@ -63,6 +70,14 @@ fi
 
 if [[ ! `which zsh` ]]; then
   $INSTALL zsh
+fi
+
+# Install node
+if [[ ! `which node` ]]; then
+  echo "> installing node"
+  # Needed to run COC
+  # TODO: Remove once converted to LSP config from COC
+  $INSTALL nodejs
 fi
 
 if [[ ! -d ".oh-my-zsh" ]]; then
@@ -73,14 +88,12 @@ if [[ ! -d ".oh-my-zsh" ]]; then
   `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
   echo ">pl10k installed"
   mv .zshrc.pre-oh-my-zsh .zshrc
-else
-  echo ">oh-my-zsh detected"
 fi
 
 # Install neovim
 echo "> Would you like to install the latest version of NeoVim? [y/n]"
-read input
-if [[ $input == 'y' ||  $input == 'Y' ||  $input == 'yes' ||  $input == 'Yes' ]]; then
+read installNvim
+if [[ $installNvim == 'y' ||  $installNvim == 'Y' ||  $installNvim == 'yes' ||  $installNvim == 'Yes' ]]; then
   echo "> installing N E O V I M"
   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
   chmod u+x nvim.appimage
@@ -92,6 +105,29 @@ if [[ ! -d ".vim/autoloac" ]]; then
   echo "> installing vim plugged"
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# Install alacritty (optional, and I need to fix some bugs)
+# echo "> Would you like to install Alacritty? [y/n]"
+# read installAlacritty
+# if [[ $installAlacritty == 'y' ||  $installAlacritty == 'Y' ||  $installAlacritty == 'yes' ||  $installAlacritty == 'Yes' ]]; then
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# git clone https://github.com/alacritty/alacritty.git
+# cd alacritty
+
+# Install tmux
+if [[ ! `which tmux` ]]; then
+  echo "> installing tmux"
+  git clone https://github.com/tmux/tmux.git
+  cd tmux
+  sh autogen.sh
+  ./configure && make
+fi
+
+# Install syncthing
+if [[ ! `which tmux` ]]; then
+  echo "> installing syncthing"
+  $INSTALL syncthing
 fi
 
 echo ">done"

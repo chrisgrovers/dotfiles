@@ -1,12 +1,10 @@
-# dotfiles
+[#](#) dotfiles
 :dna: This is me :dna:
-
 
 Following the setup as outlined [here](https://www.atlassian.com/git/tutorials/dotfiles)
 
 ## To get started
 - [ ] [install git(linux only)](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [ ] [install ripgrep](https://github.com/BurntSushi/ripgrep#installation)
 - [ ] [install prettier globally](https://github.com/prettier/prettier)
 
 ## For linux/i3
