@@ -33,9 +33,6 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export VISUAL=nvim
 
-# Dev setting for nw
-export AWS_PROFILE='nwdev'
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -74,10 +71,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 config config --local status.showUntrackedFiles no
 
-
-# Work config
-export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
-alias stopgm="docker stop stack_global-markup_1"
-alias startgm="docker start stack_global-markup_1"
-alias stopq0="docker stop stack_query0-server_1"
-alias startq0="docker start stack_query0-server_1"
+fpath+=${ZDOTDIR:-~}/.zsh_functions
