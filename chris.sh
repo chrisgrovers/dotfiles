@@ -100,10 +100,14 @@ fi
 echo "> Would you like to install the latest version of NeoVim? [y/n]"
 read installNvim
 if [[ $installNvim == 'y' ||  $installNvim == 'Y' ||  $installNvim == 'yes' ||  $installNvim == 'Yes' ]]; then
-  echo "> installing N E O V I M"
-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-  chmod u+x nvim.appimage
-  sudo mv nvim.appimage /usr/bin/nvim
+  if [[ $OS = "darwin21" ]]; then
+    $INSTALL neovim
+  else
+    echo "> installing N E O V I M"
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+    chmod u+x nvim.appimage
+    sudo mv nvim.appimage /usr/bin/nvim
+  fi
 fi
 
 # Install vim plugged
