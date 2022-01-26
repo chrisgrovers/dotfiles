@@ -15,9 +15,12 @@ if [ $OS = "linux-gnu" ]; then
     echo ">Arch linux detected"
     INSTALL="pacman -S"
   fi
-elif [ $OS = "" ]; then
+elif [ $OS = "darwin21" ]; then
   echo "> All hail our Mac Overlords"
-  INSTALL="brew"
+  INSTALL="brew install"
+  if [[ ! `which brew` ]]; then
+    echo "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+  fi
 fi
 if [[ ! $INSTALL ]]; then
   echo ">OS Not supported"
