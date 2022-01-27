@@ -1,4 +1,5 @@
 #! /usr/bin/bash
+# TODO: Ask to install packages, auto-installing everything on my server is not the way...
 echo ">My job here is done"
 
 OS=$OSTYPE
@@ -67,6 +68,14 @@ if [ $OS = "linux-gnu" ]; then
   fi
   if [[ ! `which rofi` ]]; then
     $INSTALL rofi
+  fi
+else if [ $OS = "darwin21"]; then
+  # Install Yabai & SKHD
+  if [[ ! `which yabai` ]]; then
+    $INSTALL koekeishiya/formulae/yabai
+  fi
+  if [[ ! `which skhd` ]]; then
+    $INSTALL koekeishiya/formulae/skhd
   fi
 fi
 

@@ -20,6 +20,11 @@ require('telescope').setup{
         ["<C-q>"] = actions.send_to_qflist,
       },
     }
+  },
+  pickers = {
+    find_files = {
+      hidden = true
+    }
   }
 }
 
