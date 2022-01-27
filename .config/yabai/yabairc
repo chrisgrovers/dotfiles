@@ -6,9 +6,31 @@ yabai -m config debug_output on
 
 yabai -m config layout bsp
 
+# global settings
+yabai -m config mouse_follows_focus          on
+yabai -m config focus_follows_mouse          autofocus
+
+# Monitor/Spaces setup
+yabai -m space 1 --label one
+yabai -m space 2 --label two
+yabai -m space 3 --label three
+yabai -m space 4 --label four
+yabai -m space 5 --label five
+yabai -m space 6 --label six
+yabai -m space 9 --label nine
+
 # Set all padding and gaps to 5pt (default: 0)
 yabai -m config top_padding    5
 yabai -m config bottom_padding 5
 yabai -m config left_padding   5
 yabai -m config right_padding  5
 yabai -m config window_gap     5
+
+
+# float system preferences
+yabai -m rule --add app='^System Information$' manage=off
+yabai -m rule --add app='^System Preferences$' manage=off
+yabai -m rule --add title='Pr
+#
+# float settings windows
+yabai -m rule --add title='Settings$' manage=offeferences$' manage=off
