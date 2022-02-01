@@ -90,7 +90,14 @@ lualine.setup {
 }
 
 -- { { NVIM-TREE } }
-require('nvim-tree').setup()
+require('nvim-tree').setup {
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+    ignore_list = {}
+  }
+}
 
 -- { { NVIM-AUTOPAIRS } }
 require('nvim-autopairs').setup()
