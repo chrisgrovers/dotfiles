@@ -61,24 +61,6 @@ fi
 
 
 # Linux specific installs here
-if [ $OS = "linux-gnu" ]; then
-  # Install i3blocks
-  if [[ ! `which i3blocks` ]]; then
-    $INSTALL i3blocks
-  fi
-  if [[ ! `which rofi` ]]; then
-    $INSTALL rofi
-  fi
-else if [ $OS = "darwin21"]; then
-  # Install Yabai & SKHD
-  if [[ ! `which yabai` ]]; then
-    $INSTALL koekeishiya/formulae/yabai
-  fi
-  if [[ ! `which skhd` ]]; then
-    $INSTALL koekeishiya/formulae/skhd
-  fi
-fi
-
 if [[ ! `which direnv` ]]; then
   $INSTALL direnv
 fi
