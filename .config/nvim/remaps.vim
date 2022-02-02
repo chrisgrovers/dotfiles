@@ -71,4 +71,3 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " TODO: Figure out quickfix
 nnoremap <leader>fq <cmd>lua require('telescope.builtin').quickfix()<cr>
 
-

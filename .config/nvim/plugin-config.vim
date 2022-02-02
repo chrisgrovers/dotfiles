@@ -111,6 +111,21 @@ augroup CoCGroup
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
+"
+" Wrap autocmds inside an augroup to protect against reloading this script.
+" For more details, see:
+" http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
+augroup autoformat
+  autocmd!
+  " Autoformat BUILD files on write.
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  " Autoformat go files on write.
+  autocmd FileType go AutoFormatBuffer gofmt
+  " Autoformat proto files on write.
+  autocmd FileType proto AutoFormatBuffer clang-format
+  " Autoformat c and c++ files on write.
+  autocmd FileType c,cpp AutoFormatBuffer clang-format
+augroup END
 
 " Use <TAB> for selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
@@ -141,7 +156,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 let g:coc_global_extension = [
                 \'coc-eslint',
@@ -150,6 +165,7 @@ let g:coc_global_extension = [
                 \'coc-prettier'
 \]
 "let g:prettier#config#config_precedence = 'file-override'
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-xmap <leader>p :Prettier<CR>
-nmap <leader>p :Prettier<CR>
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" xmap <leader>p :Prettier<CR>
+" nmap <leader>p :Prettier<CR>
+
