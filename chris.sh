@@ -108,6 +108,11 @@ if [[ ! -d ".vim/autoloac" ]]; then
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+if [[ ! `which rg`]] then
+  echo "> BEYBLADES LET IT RIIIIPPP"
+  $INSTALL ripgrep
+fi
+
 # Install alacritty (optional, and I need to fix some bugs)
 # echo "> Would you like to install Alacritty? [y/n]"
 # read installAlacritty
