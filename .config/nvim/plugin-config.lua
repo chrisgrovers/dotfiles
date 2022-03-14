@@ -1,6 +1,7 @@
 -- ======= PLUGIN OPTIONS =======
 local actions = require('telescope.actions')
-local lspconfig = require('lspconfig')
+local nvim_lsp = require('lspconfig')
+local configs = require('lspconfig.configs')
 
 local on_attach = function(client, bufnr)
   if client.resolved_capabilities.document_formatting then
@@ -10,28 +11,8 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[augroup END]]
   end
 end
---
--- { { TELESCOPE } }
---
-require('telescope').setup{
-  defaults = {
-    mappings = {
-      i = {
-        ["<C-q>"] = actions.send_to_qflist,
-      },
-    }
-  },
-  pickers = {
-    find_files = {
-      hidden = true
-    }
-  }
-}
 
---
--- { { GITSIGNS } }
---
-require('gitsigns').setup()
+
 
 --
 -- { { LSP Signature } }
@@ -47,11 +28,6 @@ require('gitsigns').setup()
 --     })
 --   end,
 -- }
-
---
--- { { LSP CONFIG } }
---
--- lspconfig.tsserver.setup{ on_attach=on_attach }
 
 --
 -- { { LUALINE } }
@@ -101,9 +77,4 @@ require('nvim-tree').setup {
 
 -- { { NVIM-AUTOPAIRS } }
 require('nvim-autopairs').setup()
-
-
-
-
-
 

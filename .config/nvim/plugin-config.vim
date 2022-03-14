@@ -1,34 +1,5 @@
 " ======= PLUGIN OPTIONS =======
 
-"
-" { { COMPE BASE CONFIG } }
-"
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.source = {
-  \ 'path': v:true,
-  \ 'buffer': v:true,
-  \ 'nvim_diagnostic': v:true,
-  \ }
-
-"
-" { { Prettier } }
-"
-" if isdirectory($PWD .'/node_modules')
-"     let $PATH .= ':' . $PWD . '/node_modules/.bin'
-" endif
-" let g:neoformat_javascript_eslint = {
-"             \ 'exe': 'prettier-eslint',
-"             \ 'args': [],
-"             \ }
-"
-" let g:neoformat_enabled_javascript = ['prettier-eslint']
-"
-" augroup fmt
-"   autocmd!
-"   autocmd BufWritePre * undojoin | Neoformat
-" augroup END
-
 " { { Lightline } }
 let g:lightline = {
       \ 'active': {
@@ -48,22 +19,6 @@ let g:vimwiki_folding='custom'
 "
 " { { COC } }
 "
-" { { COC.NVIM CONFIGS: } }
-" TextEdit might fail if hidden is not set.
-set hidden
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-" Give more space for displaying messages.
-set cmdheight=2
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -88,7 +43,7 @@ else
 endif
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window.
@@ -106,12 +61,9 @@ augroup CoCGroup
   autocmd!
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-
 " Use <TAB> for selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
 " coc-tsserver, coc-python are the examples of servers that support it.
@@ -141,15 +93,14 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-let g:coc_global_extension = [
-                \'coc-eslint',
-                \'coc-json',
-                \'coc-pairs',
-                \'coc-prettier'
-\]
-"let g:prettier#config#config_precedence = 'file-override'
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-xmap <leader>p :Prettier<CR>
-nmap <leader>p :Prettier<CR>
+let g:coc_global_extensions = [
+  \'coc-eslint',
+  \'coc-json',
+  \'coc-pairs',
+  \'coc-html',
+  \'coc-ultisnips',
+  \'coc-tsserver',
+  \'coc-prettier'
+  \]

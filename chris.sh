@@ -61,24 +61,13 @@ fi
 
 
 # Linux specific installs here
-if [ $OS = "linux-gnu" ]; then
-  # Install i3blocks
-  if [[ ! `which i3blocks` ]]; then
-    $INSTALL i3blocks
-  fi
-  if [[ ! `which rofi` ]]; then
-    $INSTALL rofi
-  fi
-else if [ $OS = "darwin21"]; then
-  # Install Yabai & SKHD
-  if [[ ! `which yabai` ]]; then
-    $INSTALL koekeishiya/formulae/yabai
-  fi
-  if [[ ! `which skhd` ]]; then
-    $INSTALL koekeishiya/formulae/skhd
-  fi
-fi
-
+# TODO: Prompt user to install:
+# LINUX
+# i3blocks
+# rofi
+# OSX
+# yabai
+# skhd
 if [[ ! `which direnv` ]]; then
   $INSTALL direnv
 fi
@@ -124,6 +113,11 @@ if [[ ! -d ".vim/autoloac" ]]; then
   echo "> installing vim plugged"
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+if [[ ! `which rg`]] then
+  echo "> BEYBLADES LET IT RIIIIPPP"
+  $INSTALL ripgrep
 fi
 
 # Install alacritty (optional, and I need to fix some bugs)
