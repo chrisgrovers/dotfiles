@@ -28,9 +28,6 @@ Plug 'chrisbra/Colorizer'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
-" { { Clipboard anywhere?? } }
-Plug 'ojroques/vim-oscyank'
-
 " { { Telescope } }
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -55,8 +52,9 @@ Plug 'tomtom/tcomment_vim'
 " { { TPOPE IS MY HERO } }
 " Surround in parens/quotes/XML
 Plug 'tpope/vim-surround'
-" { { Git/Mercurial}}
-Plug 'ludovicchabant/vim-lawrencium'
+
+" { { Git integration use :Git/:G for commands } }
+Plug 'tpope/vim-fugitive'
 
 " { { Git Gutter } }
 Plug 'mhinz/vim-signify'
