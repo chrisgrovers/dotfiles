@@ -28,6 +28,8 @@ Plug 'chrisbra/Colorizer'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
+" { { Clipboard anywhere?? } }
+Plug 'ojroques/vim-oscyank'
 
 " { { Telescope } }
 Plug 'nvim-lua/popup.nvim'
@@ -57,12 +59,11 @@ Plug 'tomtom/tcomment_vim'
 " { { TPOPE IS MY HERO } }
 " Surround in parens/quotes/XML
 Plug 'tpope/vim-surround'
-" { { Git integration use :Git/:G for commands } }
-Plug 'tpope/vim-fugitive'
+" { { Git/Mercurial}}
+Plug 'ludovicchabant/vim-lawrencium'
 
-" { { Git Signs } }
-Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
+" { { Git Gutter } }
+Plug 'mhinz/vim-signify'
 
 " { { Better vim casing (includes motion, visual mode, and object support) } }
 " NOTE: use: gs{motion} to change case for a visual selection
@@ -71,18 +72,16 @@ Plug 'arthurxavierx/vim-caser'
 " { { Conquer of Completion 'Make your Vim/Neovim as smart as VSCode.' } }
 " Use release branch (Recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prabirshrestha/vim-lsp'
 Plug 'neovim/nvim-lspconfig'
-Plug 'ray-x/lsp_signature.nvim'
 
 " { { Better syntax highlighting } }
 Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'pangloss/vim-javascript'
-Plug 'jparise/vim-graphql'
-Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'lepture/vim-jinja'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'yamatsum/nvim-cursorline'
 
 " { { VimWiki  } }
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
