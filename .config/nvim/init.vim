@@ -24,3 +24,15 @@ set encoding=UTF-8 " Setting for vim-devicons
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
+
+" To make this work with TMux, you need to enable a special setting in Iterm2
+" https://github.com/neovim/neovim/issues/3702
+
+" copy the current text selection to the system clipboard
+" if has('gui_running') || has('nvim') && exists('$DISPLAY')
+"   noremap <Leader>y "+y
+" else
+"   " copy to attached terminal using the yank(1) script:
+"   " https://github.com/sunaku/home/blob/master/bin/yank
+"   noremap <silent> <Leader>y y:call system('osc52_yank > /dev/tty', @0)<Return>
+" endif
