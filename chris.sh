@@ -61,6 +61,13 @@ fi
 
 
 # Linux specific installs here
+# TODO: Prompt user to install:
+# LINUX
+# i3blocks
+# rofi
+# OSX
+# yabai
+# skhd
 if [[ ! `which direnv` ]]; then
   $INSTALL direnv
 fi
