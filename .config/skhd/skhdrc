@@ -27,12 +27,6 @@ alt - j : yabai -m window --focus south || $(yabai -m display --focus south)
 alt - k : yabai -m window --focus north || $(yabai -m display --focus north)
 alt - l : yabai -m window --focus east || $(yabai -m display --focus east)
 
-### (alt) change focus (using arrow keys)
-###### DISABLED, I never use arrow keys and this gets in the way
-# alt - left  : yabai -m window --focus west
-# alt - down  : yabai -m window --focus south
-# alt - up    : yabai -m window --focus north
-# alt - right : yabai -m window --focus east
 # go back to previous workspace (kind of like back_and_forth in i3)
 alt - b : yabai -m 
 # navigate workspaces next / previous using arrow keys
@@ -55,12 +49,6 @@ alt + ctrl - h : yabai -m window --insert west
 alt + ctrl - j : yabai -m window --insert south
 alt + ctrl - k : yabai -m window --insert north
 alt + ctrl - l : yabai -m window --insert east
-# (alt) set insertion point in focused container using arrows
-###### DISABLED, I never use arrow keys and this gets in the way
-# alt + ctrl - left  : yabai -m window --insert west
-# alt + ctrl - down  : yabai -m window --insert south
-# alt + ctrl - up    : yabai -m window --insert north
-# alt + ctrl - right : yabai -m window --insert east
 # create desktop, move win# navigate workspaces next / previous using arrow keys
 cmd + ctrl - left  : yabai -m space --focus prev
 cmd + ctrl - right : yabai -m space --focus nextdow and follow focus
@@ -95,8 +83,9 @@ cmd + shift - s : yabai -m window --resize bottom:0:-20
 cmd + shift - w : yabai -m window --resize top:0:20
 cmd + shift - d : yabai -m window --resize right:-20:0
 # change layout of desktop
-alt - e : yabai -m space --layout bsp
-alt - s : yabai -m space --layout float
+alt + shift - x : yabai -m space --layout bsp
+alt + shift - c : yabai -m space --layout float
+alt + shift - v : yabai -m space --layout float
 
 ctrl + shift - 1 : yabai -m window --space 1
 ctrl + shift - 2 : yabai -m window --space 2

@@ -1,0 +1,7 @@
+tokyon|tokyonight|buffer
+Trainom|Trainomatic|buffer
+i|iTerm.app|file
+|iTerm2|file
+|MacOS|file
+|Contents|file
+dar|darwin21|around

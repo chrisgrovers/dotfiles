@@ -30,7 +30,7 @@ nnoremap <Leader>r :so $MYVIMRC<CR>
 "
 " Copy content of template to file
 nmap <leader>notes :r ~/notes/templates/notes.md<CR>
-nmap <leader>diary :.r ~/notes/templates/diary.md<CR> <leader>date
+nmap <leader>diary <leader>date :.r ~/notes/templates/diary.md<CR> 
 nmap <leader>standup :r ~/notes/templates/standup.md<CR>
 nmap <leader>tps :r ~/notes/templates/tps.md<CR>
 nmap <leader>ntfe :r ~/notes/templates/note taking frontend.md<CR>

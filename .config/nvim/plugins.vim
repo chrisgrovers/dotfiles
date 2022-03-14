@@ -7,27 +7,22 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-" TODO:
-  " Set up shortcuts/remaps
-" Check out https://github.com/mbbill/undotree (This bad boy looks cool)
-" ^^^ Pretty much copy what theprimeagen and altf4 stream are doing
+" Pretty much copy what theprimeagen and altf4 stream are doing
 " https://github.com/awesome-streamers/awesome-streamerrc
 
 " { { Themes } }
-" TLDR: Setting up solarized takes effort, and I'm lazy
-Plug 'gruvbox-community/gruvbox'
+Plug 'folke/tokyonight.nvim'
 
 " { { Display colors } }
 Plug 'ap/vim-css-color'
 Plug 'chrisbra/Colorizer'
 
-" { { Nerdtree } }
-" Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
 " { { Nvim-tree } }
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
+" { { Clipboard anywhere?? } }
+Plug 'ojroques/vim-oscyank'
 
 " { { Telescope } }
 Plug 'nvim-lua/popup.nvim'
@@ -36,10 +31,6 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " { { Nvim-autopairs } }
 Plug 'windwp/nvim-autopairs'
-
-" { { Prettier } }
-" Plug 'sbdchd/neoformat'
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " { { Treesitter } }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -85,11 +76,6 @@ Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
 
 " { { Auto close brackets/quotes } }
-" TODO: @chris nvim-autopairs should be the one. Remove
-" Plug 'jiangmiao/auto-pairs'
-
-" Plug 'vim-airline/vim-airline' 
-" Plug 'itchyny/lightline.vim'
 Plug 'hoob3rt/lualine.nvim'
 
 " { { Vim devicons } } 
