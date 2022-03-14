@@ -42,6 +42,9 @@ Plug 'tomtom/tcomment_vim'
 " Surround in parens/quotes/XML
 Plug 'tpope/vim-surround'
 
+" { { VERSION CONTROL } }
+" { { Git/Mercurial}}
+ Plug 'ludovicchabant/vim-lawrencium'
 " { { Git integration use :Git/:G for commands } }
 Plug 'tpope/vim-fugitive'
 
