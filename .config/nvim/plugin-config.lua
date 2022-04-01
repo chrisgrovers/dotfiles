@@ -12,9 +12,6 @@ local on_attach = function(client, bufnr)
   end
 end
 
-
-
---
 -- { { LSP Signature } }
 --
 -- Default config from the docs
@@ -29,9 +26,7 @@ end
 --   end,
 -- }
 
---
 -- { { LUALINE } }
---
 local status, lualine = pcall(require, "lualine")
 if (not status) then return end
 lualine.setup {
@@ -69,12 +64,11 @@ lualine.setup {
 require('nvim-tree').setup {
   update_cwd = true,
   update_focused_file = {
-    enable = true,
+    enabled = true,
     update_cwd = true,
-    ignore_list = {}
+    ignore_list= {},
   }
 }
 
 -- { { NVIM-AUTOPAIRS } }
 require('nvim-autopairs').setup()
-

@@ -67,7 +67,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'lepture/vim-jinja'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'yamatsum/nvim-cursorline'
 
 " { { VimWiki  } }
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
