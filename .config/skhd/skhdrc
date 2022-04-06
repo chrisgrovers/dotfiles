@@ -21,7 +21,6 @@ alt + ctrl - 2  : yabai -m display --focus 2
 alt + ctrl - 3  : yabai -m display --focus 3
 
 ## Window focus
-## TODO: Add support for defaulting to switching window
 alt - h : yabai -m window --focus west || $(yabai -m display --focus west)
 alt - j : yabai -m window --focus south || $(yabai -m display --focus south)
 alt - k : yabai -m window --focus north || $(yabai -m display --focus north)
@@ -39,16 +38,19 @@ alt + shift - h : yabai -m window --warp west || $(yabai -m window --display wes
 alt + shift - j : yabai -m window --warp south || $(yabai -m window --display south; yabai -m display --focus south)
 alt + shift - k : yabai -m window --warp north || $(yabai -m window --display north; yabai -m display --focus north)
 alt + shift - l : yabai -m window --warp east || $(yabai -m window --display east; yabai -m display --focus east)
+
 # swap windows in current workspace
 alt + ctrl + shift - h : yabai -m window --swap west
 alt + ctrl + shift - j : yabai -m window --swap south
 alt + ctrl + shift - k : yabai -m window --swap north
 alt + ctrl + shift - l : yabai -m window --swap east
+
 # set insertion point in focused container
 alt + ctrl - h : yabai -m window --insert west
 alt + ctrl - j : yabai -m window --insert south
 alt + ctrl - k : yabai -m window --insert north
 alt + ctrl - l : yabai -m window --insert east
+
 # create desktop, move win# navigate workspaces next / previous using arrow keys
 cmd + ctrl - left  : yabai -m space --focus prev
 cmd + ctrl - right : yabai -m space --focus nextdow and follow focus
@@ -70,6 +72,8 @@ alt - n : yabai -m space --create;\
 
 
 ######## WINDOW RESIZE ########
+# Set current window to full screen
+alt + shift - f : yabai -m window --toggle zoom-fullscreen
 # balance size of windows
 alt + shift - 0 : yabai -m space --balance
 # increase window size
