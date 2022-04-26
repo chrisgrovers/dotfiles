@@ -1,3 +1,8 @@
+tf|tfhub|around|
+functionalit|functionality|buffer|
+necess|necessarily|buffer|
+experim|Experimentation|around|
+Pen|Pengxu|buffer|
 tokyon|tokyonight|buffer
 Trainom|Trainomatic|buffer
 i|iTerm.app|file
