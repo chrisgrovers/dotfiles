@@ -138,7 +138,7 @@ if [[ ! `which tmux` ]]; then
 fi
 
 # Install syncthing
-if [[ ! `which tmux` ]]; then
+if [[ ! `which syncthing` ]]; then
   echo "> installing syncthing"
   $INSTALL syncthing
 fi
