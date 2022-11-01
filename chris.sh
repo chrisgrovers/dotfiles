@@ -115,7 +115,7 @@ if [[ ! -d ".vim/autoloac" ]]; then
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-if [[ ! `which rg`]] then
+if [[ ! `which rg` ]]; then
   echo "> BEYBLADES LET IT RIIIIPPP"
   $INSTALL ripgrep
 fi
