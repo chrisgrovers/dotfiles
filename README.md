@@ -13,12 +13,23 @@ Following the setup as outlined [here](https://www.atlassian.com/git/tutorials/d
 ## For MacOS
 - [Do the thing]
 
-Paste this bad boy in the console to get started (WIP):
+Paste this bad boy (Either SSH or HTTPS) in the console to get started:
+SSH:
 ```
 git clone --bare git@github.com:chrisgrovers/dotfiles.git $HOME/.dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+config checkout -f
 bash chris.sh
 
 ```
+HTTPS:
+```
+git clone --bare https://github.com/chrisgrovers/dotfiles.git $HOME/.dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+config checkout -f
+bash chris.sh
+```
+
 
 - [ ] After setting up, configure git following [this guide](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 - [ ] paste `git config --global credential.helper store` to store the newly generated access token
