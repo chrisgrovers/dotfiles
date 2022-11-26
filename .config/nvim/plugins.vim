@@ -18,8 +18,8 @@ Plug 'ap/vim-css-color'
 Plug 'chrisbra/Colorizer'
 
 " { { Nvim-tree } }
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+Plug 'nvim-tree/nvim-tree.lua'
 
 " { { Telescope } }
 Plug 'nvim-lua/popup.nvim'
@@ -55,11 +55,13 @@ Plug 'mhinz/vim-signify'
 " NOTE: use: gs{motion} to change case for a visual selection
 Plug 'arthurxavierx/vim-caser'
 
-" { { Conquer of Completion 'Make your Vim/Neovim as smart as VSCode.' } }
-" Use release branch (Recommend)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'prabirshrestha/vim-lsp'
+" { { LSP Config } }
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 " { { Better syntax highlighting } }
 Plug 'leafgarland/typescript-vim'

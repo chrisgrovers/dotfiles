@@ -38,15 +38,6 @@ nmap <leader>ntfe :r ~/notes/templates/note taking frontend.md<CR>
 " Helpers
 nmap <leader>date :put =strftime('# %a %b %d')<CR>
 
-" compeompe } }
-" inoremap <silent><expr> <C-Space> compe#complete()
-" inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-" inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-" inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-" inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 " { { File Explorer } }
 " NerdTree
 nnoremap <leader>jk :NvimTreeToggle<CR>
@@ -54,16 +45,6 @@ nnoremap <leader>jl :NvimTreeFindFile<CR>
 
 " { { Lawrencium } }
 nnoremap <leader>hg :Hgstatus<CR>
-
-" { { Telescope } }
-" Copy/pasted from the README
-" https://github.com/nvim-telescope/telescope.nvim#usage
-
-" Find files using Telescope command-line sugar.
-" nnoremap <leader>ff <cmd>Telescope find_files<cr>
-" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-" nnoremap <leader>fb <cmd>Telescope buffers<cr>
-" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Using lua functions
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
