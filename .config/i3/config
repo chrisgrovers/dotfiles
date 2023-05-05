@@ -19,10 +19,11 @@ font pango:System San Francisco Display 10
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-for_window [class="^.*"] border pixel 0
-
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
+
+# Set keymap with xmodmap
+exec --no-startup-id xmodmap ~/.Xmodmap
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -30,7 +31,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -69,7 +70,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+z split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -166,18 +167,44 @@ bindsym $mod+r mode "resize"
 
 # Window colors
 # TODO: Update colors for solarized or neotokyo theme
-set $bgcolor	#282828
-set $ibgcolor	#1D2021
-set $textcolor	#282828
-set $ubgcolor	#D79921
-set $gruvbox_red  #FB4934
-set $textcolor_light #EBDBB2
+# =================== GRUVBOX ===============================
+# set $bgcolor	#282828
+# set $ibgcolor	#1D2021
+# set $textcolor	#282828
+# set $ubgcolor	#D79921
+# set $gruvbox_red  #FB4934
+# set $textcolor_light #EBDBB2
 
-#			Border		Background	Text		Indicator
-client.focused		$bgcolor	$bgcolor	$textcolor	$bgcolor
-client.unfocused	$bgcolor	$bgcolor	$textcolor	$bgcolor
-client.focused_inactive	$bgcolor	$bgcolor	$textcolor	$bgcolor
-client.urgent		$bgcolor	$bgcolor	$textcolor	$bgcolor
+# #                 # Border		Background	Text		Indicator
+# client.focused		$ubgcolor	$bgcolor	$textcolor_light	$bgcolor
+# client.unfocused	$bgcolor	$bgcolor	$textcolor_light	$bgcolor
+# client.focused_inactive	$gruvbox_red	$bgcolor	$textcolor_light	$bgcolor
+# client.urgent		$bgcolor	$bgcolor	$textcolor_light	$bgcolor
+
+
+# ================== NORD/TOKYONIGHT =========================
+# theme from reddit
+# https://www.reddit.com/r/unixporn/comments/12kzs5e/i3gaps_void_linux_with_nord_merged_with_tokyonight/
+# class                 Border     Background	 Text		 Indicator
+client.focused          #81a1c1    #81a1c1     #000000 #81a1c1
+client.unfocused        #2e3440    #1f222d     #888888 #1f222d
+client.focused_inactive #2e3440    #1f222d     #888888 #1f222d
+client.placeholder      #2e3440    #1f222d     #888888 #1f222d
+client.urgent           #900000    #900000     #ffffff #900000
+
+client.background       #242424
+
+# for_window [class="^.*"] border normal
+# client.focused #ffffff #ffffff #ffffff #9fa7ca     #9fa7ca
+# for_window [class=".*"] border pixel 3
+
+# Gaps settings
+gaps inner 5
+smart_gaps on
+smart_borders on
+default_border pixel 3
+default_floating_border pixel 3
+for_window [class="^.*"] border pixel 3
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -196,7 +223,7 @@ bindsym $mod+shift+x exec i3lock --color "$bg-color"
 
 # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
+# set focus_follows_mouse yes
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -214,8 +241,10 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Screen brightness shortcuts
 # https://github.com/Hummer12007/brightnessctl
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+bindsym shift+XF86MonBrightnessUp exec --no-startup-id brightnessctl set +1%
+bindsym shift+XF86MonBrightnessDown exec --no-startup-id brightnessctl set 1%-
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
@@ -237,7 +266,6 @@ exec_always --no-startup-id xrdb -merge /home/greg/.Xresources
 
 # Screenshots
 #interactive screenshot by pressing printscreen
-bindsym --release Print exec --no-startup gnome-screenshot clipboard -i --file=~/Pictures/Screenshots/Screenshots-$(date +%F-%T).png
+bindsym Print exec gnome-screenshot -i 
 #crop-area screenshot by pressing Mod + printscreen
-bindsym --release $mod+Print exec gnome-screenshot clipboard -a --file=~/Pictures/Screenshots/Screenshots-$(date +%F-%T).png
-
+bindsym $mod+Print exec gnome-screenshot -a
