@@ -43,7 +43,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # dmenu/program launcher
-bindsym $mod+d exec "rofi run -show drun -theme gruvbox-dark"
+bindsym $mod+d exec "rofi run -show drun"
 
 # change focus
 bindsym $mod+h focus left
