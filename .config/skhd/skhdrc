@@ -7,9 +7,12 @@
 alt - return : open -n /Applications/iTerm.app
 #
 # restart Yabi, and SKHD
-alt + shift - r : \
-    launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"; \
-    skhd --reload
+alt + shift - r : yabai --restart-service; skhd --reload
+
+# Uncomment for brew installs
+# alt + shift - r : \
+#     launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"; \
+#     skhd --reload
 
 ########## FOCUS HOTKEYS ##########
 ## Display/Monitor focus

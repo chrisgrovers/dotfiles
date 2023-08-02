@@ -52,7 +52,16 @@ lualine.setup {
 }
 
 -- { { NVIM-TREE } }
-require("nvim-tree").setup()
+require('nvim-tree').setup {
+  view = {
+    adaptive_size = true,
+  },
+  update_cwd = true,
+  update_focused_file = {
+    update_cwd = true,
+    ignore_list= {},
+  }
+}
 
 -- { { NVIM-AUTOPAIRS } }
 require('nvim-autopairs').setup()
@@ -131,3 +140,29 @@ require('lspconfig')['tsserver'].setup {
   capabilities = capabilities
 }
 
+-- { { ALPHA-NVIM } }
+local alpha = require("alpha")
+local dashboard = require("alpha.themes.dashboard")
+local ascii = require("ascii")
+
+dashboard.section.header.val = ascii.get_random_global()
+dashboard.section.buttons.val = {
+    dashboard.button( 'space f f', '  > Find file', ':cd $HOME/Workspace | Telescope find_files<CR>'),
+    dashboard.button( 'space f g', '  > Find word', ':cd $HOME/Workspace | Telescope live_grep<CR>'),
+    dashboard.button( 'space f r', '  > Recent'   , ':Telescope resume<CR>'),
+    dashboard.button( 'space ,', '  > Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
+    dashboard.button('c', ' Check health', ':checkhealth<CR>'),
+    dashboard.button( 'q', '  > Quit NVIM', ':qa<CR>'),
+}
+-- Footer
+local function footer()
+  local version = vim.version()
+  local pluginCount = vim.fn.len(vim.fn.globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1))
+  local print_version = 'v' .. version.major .. '.' .. version.minor .. '.' .. version.patch
+  local date = os.date '%d.%m.%Y'
+  --local datetime = os.date '%d.%m.%Y %H:%M'
+  return ' ' .. print_version .. '   ' .. pluginCount .. '   ' .. date
+end
+
+dashboard.section.footer.val = footer()
+alpha.setup(dashboard.opts)

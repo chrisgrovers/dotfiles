@@ -13,6 +13,11 @@ call plug#begin('~/.vim/plugged')
 " { { Themes } }
 Plug 'folke/tokyonight.nvim'
 
+" { { Greeting Page } }
+Plug 'goolord/alpha-nvim'
+Plug 'MaximilianLloyd/ascii.nvim'
+Plug 'MunifTanjim/nui.nvim'
+
 " { { Display colors } }
 Plug 'ap/vim-css-color'
 Plug 'chrisbra/Colorizer'
@@ -44,7 +49,8 @@ Plug 'tpope/vim-surround'
 
 " { { VERSION CONTROL } }
 " { { Git/Mercurial}}
- Plug 'ludovicchabant/vim-lawrencium'
+Plug 'ludovicchabant/vim-lawrencium'
+
 " { { Git integration use :Git/:G for commands } }
 Plug 'tpope/vim-fugitive'
 
@@ -55,7 +61,14 @@ Plug 'mhinz/vim-signify'
 " NOTE: use: gs{motion} to change case for a visual selection
 Plug 'arthurxavierx/vim-caser'
 
+<<<<<<< HEAD
 " { { LSP Config } }
+=======
+" LSP Setup
+" Use release branch (Recommend)
+Plug 'neoclide/coc.nvim'
+Plug 'prabirshrestha/vim-lsp'
+>>>>>>> f8e3e59 (Added tmux theme, and alpha nvim, and other config updates)
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
