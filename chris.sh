@@ -109,7 +109,7 @@ if [[ $installNvim == 'y' ||  $installNvim == 'Y' ||  $installNvim == 'yes' ||  
 fi
 
 # Install vim plugged
-if [[ ! -d ".vim/autoloac" ]]; then
+if [[ ! -d ".vim/autoload" ]]; then
   echo "> installing vim plugged"
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
