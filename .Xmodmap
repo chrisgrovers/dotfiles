@@ -104,14 +104,18 @@ keycode 109 = Linefeed NoSymbol Linefeed
 ! keycode 110 = Home NoSymbol Home
 keycode 110 = XF86AudioPrev NoSymbol XF86AudioPrev
 keycode 111 = Up NoSymbol Up
-keycode 112 = Prior NoSymbol Prior
+! Default PgUp
+! keycode 112 = Prior NoSymbol Prior
+keycode 112 = Left Prior Left
 keycode 113 = Left NoSymbol Left
 keycode 114 = Right NoSymbol Right
 ! Default End key
 ! keycode 115 = End NoSymbol End
 keycode 115 = XF86AudioNext NoSymbol XF86AudioNext
 keycode 116 = Down NoSymbol Down
-keycode 117 = Next NoSymbol Next
+! Default PgDn
+! keycode 117 = Next NoSymbol Next
+keycode 117 = Right Next Right
 keycode 118 = Insert NoSymbol Insert
 ! Delete key default
 ! keycode 119 = Delete NoSymbol Delete
