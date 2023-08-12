@@ -164,5 +164,6 @@ local function footer()
   return ' ' .. print_version .. '   ' .. pluginCount .. '   ' .. date
 end
 
+
 dashboard.section.footer.val = footer()
 alpha.setup(dashboard.opts)
