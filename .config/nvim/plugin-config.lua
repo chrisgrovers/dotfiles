@@ -48,7 +48,7 @@ lualine.setup {
     lualine_y = {}, lualine_z = {}
   },
   tabline = {},
-  extensions = {'fugitive'}
+  extensions = {'fugitive', 'nvim-tree'}
 }
 
 -- { { NVIM-TREE } }
@@ -56,11 +56,12 @@ require('nvim-tree').setup {
   view = {
     adaptive_size = true,
   },
-  update_cwd = true,
   update_focused_file = {
-    update_cwd = true,
-    ignore_list= {},
-  }
+    -- Opting to manually update with <leader>jk
+    -- enable = true,
+    update_root = true,
+    ignore_list = {},
+  },
 }
 
 -- { { NVIM-AUTOPAIRS } }
@@ -154,6 +155,7 @@ dashboard.section.buttons.val = {
     dashboard.button('c', ' Check health', ':checkhealth<CR>'),
     dashboard.button( 'q', '  > Quit NVIM', ':qa<CR>'),
 }
+
 -- Footer
 local function footer()
   local version = vim.version()
@@ -167,3 +169,8 @@ end
 
 dashboard.section.footer.val = footer()
 alpha.setup(dashboard.opts)
+
+-- { { ALPHA-NVIM } }
+require('alpha').setup(
+  require'alpha.themes.dashboard'.config
+) 

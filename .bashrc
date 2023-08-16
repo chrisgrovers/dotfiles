@@ -11,6 +11,12 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
+export HOMEBREW_NO_UPDATE_CLEANUP=1
+brewprefix=/usr/local/brew
+export PATH="$brewprefix/bin:$brewprefix/sbin:$PATH"
+export MANPATH="$brewprefix/share/man:$MANPATH"
+unset brewprefix
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

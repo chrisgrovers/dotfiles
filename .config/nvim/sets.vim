@@ -24,6 +24,6 @@ set showmatch matchtime=3           " show matching brackets.
 set softtabstop=2                   " see multiple spaces as tabstops so <BS> does the right thing
 set splitbelow splitright           " Open splits in the expected place
 set tabstop=2                       " number of columns occupied by a tab character
-" set wildmode=longest:list           " get bash-like tab completions
-" set completeopt=menu,menuone,noselect " nvim-cmp options
+set wildmode=longest:list           " get bash-like tab completions
+set completeopt=menu,menuone,noselect " nvim-cmp options
 set laststatus=1                    " Minimal window separation

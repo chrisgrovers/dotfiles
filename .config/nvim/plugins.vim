@@ -69,10 +69,10 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
-" Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'onsails/lspkind-nvim'
-" Plug 'folke/trouble.nvim'
-"
+Plug 'folke/trouble.nvim'
+
 " For vsnip users
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'

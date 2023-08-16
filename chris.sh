@@ -16,7 +16,7 @@ if [ $OS = "linux-gnu" ]; then
     echo ">Arch linux detected"
     INSTALL="pacman -S"
   fi
-elif [ $OS = "darwin21" ]; then
+elif [ $OS = "darwin"* ]; then
   echo "> All hail our Mac Overlords"
   INSTALL="brew install"
   if [[ ! `which brew` ]]; then
