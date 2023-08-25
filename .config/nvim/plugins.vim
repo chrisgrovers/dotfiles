@@ -36,6 +36,7 @@ Plug 'windwp/nvim-autopairs'
 
 " { { Treesitter } }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'andymass/vim-matchup'
 
 " { { tComm, file type sensible comments } }
 Plug 'tomtom/tcomment_vim'

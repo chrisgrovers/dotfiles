@@ -15,3 +15,7 @@ let g:vimwiki_list = [{
       \ 'folding':'syntax',
       \ 'ext': '.md' }]
 let g:vimwiki_folding='custom'
+
+" { { vim-matchup } }
+let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_hi_surround_always = 1
