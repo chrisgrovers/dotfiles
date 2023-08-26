@@ -54,6 +54,7 @@ Plug 'ludovicchabant/vim-lawrencium'
 
 " { { Git integration use :Git/:G for commands } }
 Plug 'tpope/vim-fugitive'
+Plug 'sindrets/diffview.nvim'
 
 " { { Git Gutter } }
 Plug 'mhinz/vim-signify'
