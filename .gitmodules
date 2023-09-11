@@ -1,0 +1,15 @@
+[submodule ".config/.config/AstroNvim"]
+	path = .config/.config/AstroNvim
+	url = https://github.com/AstroNvim/AstroNvim
+[submodule "/Users/cgrovers/.config/kickstart"]
+	path = /Users/cgrovers/.config/kickstart
+	url = https://github.com/nvim-lua/kickstart.nvim.git
+[submodule "/Users/cgrovers/.config/NvChad"]
+	path = /Users/cgrovers/.config/NvChad
+	url = https://github.com/NvChad/NvChad
+[submodule "/Users/cgrovers/.config/AstroNvim"]
+	path = /Users/cgrovers/.config/AstroNvim
+	url = https://github.com/AstroNvim/AstroNvim
+[submodule "/Users/cgrovers/.config/LazyVim"]
+	path = /Users/cgrovers/.config/LazyVim
+	url = https://github.com/LazyVim/starter
