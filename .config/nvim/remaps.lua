@@ -65,3 +65,6 @@ vim.keymap.set('n', '<Leader>y', '<Plug>OSCYankOperator', { noremap = true })
 vim.keymap.set('n', '<Leader>yy', '<Leader>y_', { noremap = true })
 vim.keymap.set('v', '<Leader>y', '<Plug>OSCYankVisual', { noremap = true })
 
+-- { { Navigation } }
+vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { noremap = true })
+vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { noremap = true })

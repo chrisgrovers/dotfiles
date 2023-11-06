@@ -76,14 +76,6 @@ if [[ ! `which zsh` ]]; then
   $INSTALL zsh
 fi
 
-# Install node
-if [[ ! `which node` ]]; then
-  echo "> installing node"
-  # Needed to run COC
-  # TODO: Remove once converted to LSP config from COC
-  $INSTALL nodejs
-fi
-
 if [[ ! -d ".oh-my-zsh" ]]; then
   echo "> installing oh-my-zsh"
   echo "> you must `exit` once complete"
