@@ -59,6 +59,7 @@ vim.keymap.set('n', '<Leader>fb', '<cmd>lua require(\'telescope.builtin\').buffe
 vim.keymap.set('n', '<Leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>fq', '<cmd>lua require(\'telescope.builtin\').quickfix()<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>fr', '<cmd>lua require(\'telescope.builtin\').resume()<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>?', '<cmd>lua require(\'telescope.builtin\').keymaps()<CR>', { noremap = true })
 
 -- Vim-oscyank
 vim.keymap.set('n', '<Leader>y', '<Plug>OSCYankOperator', { noremap = true })
