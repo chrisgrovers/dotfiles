@@ -17,6 +17,12 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+export HOMEBREW_NO_UPDATE_CLEANUP=1
+brewprefix=/usr/local/brew
+export PATH="$brewprefix/bin:$brewprefix/sbin:$PATH"
+export MANPATH="$brewprefix/share/man:$MANPATH"
+unset brewprefix
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -68,7 +74,10 @@ alias cim='nvim'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(direnv hook zsh)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+for FILE in ~/.zsh/*; do
+    source $FILE
+done
+
 # Default Silver Searcher in the flesh
 # export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ignore Library -g ""'
 

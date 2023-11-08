@@ -7,8 +7,16 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-" Pretty much copy what theprimeagen and altf4 stream are doing
+" == potential add on plugins ==
+" https://github.com/ahmedkhalf/project.nvim
+" Check out https://github.com/mbbill/undotree (This bad boy looks cool)
+" === INSPIRATION ===
+" == Primeagen dots ==
 " https://github.com/awesome-streamers/awesome-streamerrc
+" == Nice aesthetic dots for inspo ==
+" https://github.com/NvChad/NvChad
+" == for when I have nothing better to do ==
+" https://github.com/rockerBOO/awesome-neovim
 
 " { { Themes } }
 Plug 'folke/tokyonight.nvim'
@@ -47,11 +55,9 @@ Plug 'tomtom/tcomment_vim'
 " { { TPOPE IS MY HERO } }
 " Surround in parens/quotes/XML
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
 
 " { { VERSION CONTROL } }
-" { { Git/Mercurial}}
-Plug 'ludovicchabant/vim-lawrencium'
-
 " { { Git integration use :Git/:G for commands } }
 Plug 'tpope/vim-fugitive'
 Plug 'sindrets/diffview.nvim'
@@ -92,9 +98,6 @@ Plug 'mattn/calendar-vim'
 
 " { { Auto close brackets/quotes } }
 Plug 'hoob3rt/lualine.nvim'
-
-" { { Vim devicons } } 
-Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
 call plug#end()
