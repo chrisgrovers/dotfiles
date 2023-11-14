@@ -1,0 +1,3 @@
+profile {
+  output eDP-1 mode 2160x1350 enable scale 1
+}
