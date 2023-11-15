@@ -74,9 +74,11 @@ alias cim='nvim'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(direnv hook zsh)"
 
-for FILE in ~/.zsh/*; do
-    source $FILE
-done
+if [[ -f ~/.zsh/ ]]; then
+  for FILE in ~/.zsh/*; do
+      source $FILE
+  done
+fi 
 
 # Default Silver Searcher in the flesh
 # export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ignore Library -g ""'

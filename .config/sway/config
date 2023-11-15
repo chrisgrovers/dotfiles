@@ -11,6 +11,11 @@
 
 set $mod Mod4
 
+
+input "type:keyboard" {
+  xkb_options caps:escape_shifted_capslock
+}
+
 # Font for window titles. Will also be used by the bar unless a different font
 font pango:System San Francisco Display 10
 
