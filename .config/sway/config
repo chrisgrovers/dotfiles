@@ -183,23 +183,28 @@ bindsym $mod+r mode "resize"
 
 
 # ================== NORD/TOKYONIGHT =========================
-# theme from reddit
-# https://www.reddit.com/r/unixporn/comments/12kzs5e/i3gaps_void_linux_with_nord_merged_with_tokyonight/
-# class                 Border     Background	 Text		 Indicator
-client.focused          #81a1c1    #81a1c1     #000000 #81a1c1
-client.unfocused        #2e3440    #1f222d     #888888 #1f222d
-client.focused_inactive #2e3440    #1f222d     #888888 #1f222d
-client.placeholder      #2e3440    #1f222d     #888888 #1f222d
-client.urgent           #900000    #900000     #ffffff #900000
-
+# https://github.com/lokesh-krishna/dotfiles/blob/main/nord-v3/config/sway/config
+## Window decoration
+# class                 border  backgr. text    indicator child_border
+client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb   #88c0d0
+client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
+client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
+client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
 client.background       #242424
+
+# Import GTK settings
+exec_always $HOME/bin/import-gsettings \
+    gtk-theme:gtk-theme-name \
+    icon-theme:gtk-icon-theme-name \
+    cursor-theme:gtk-cursor-theme-name\
+    font-name:gtk-font-name
 
 # for_window [class="^.*"] border normal
 # client.focused #ffffff #ffffff #ffffff #9fa7ca     #9fa7ca
 # for_window [class=".*"] border pixel 3
 
 # Gaps settings
-gaps inner 8
+gaps inner 5
 gaps outer 0
 smart_gaps on
 smart_borders on

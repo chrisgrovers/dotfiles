@@ -7,6 +7,8 @@
 
 window#waybar {
   background: transparent;
+  margin-right: 10px;
+  border-radius: 0px 15px 15px 0px;
   color: #c0caf5;
 }
 
@@ -42,14 +44,20 @@ tooltip {
   border-radius: 15px;
 }
 
-#clock,
+#backlight,
 #battery,
-#pulseaudio,
-#workspaces,
-#language,
-#tray,
+#clock,
+#cpu,
 #idle_inhibitor,
-#backlight {
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#tray,
+#temperature,
+#window,
+#workspaces {
   background-color: #24283b;
   padding: 0px 8px;
   margin: 8px 0px;
@@ -62,13 +70,13 @@ tooltip {
 
 #clock {
   color: #f7768e;
-  border-radius: 0px 15px 15px 0px;
-  margin-right: 10px;
-  padding-right: 10px;
+  border-radius: 15px;
 }
 
 #battery {
   color: #9ece6a;
+  margin-right: 15px;
+  border-radius: 0px 15px 15px 0px;
 }
 
 #backlight {
@@ -77,6 +85,7 @@ tooltip {
 
 #idle_inhibitor {
   color: #7dcfff;
+  border-radius: 15px 0px 0px 15px;
 }
 
 #battery.charging {
