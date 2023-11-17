@@ -1,14 +1,13 @@
 * {
+  border: none;
   border-radius: 0;
-  font-family: Inter Medium;
-  font-size: 12px;
+  font-family: monospace;
+  font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
   background: transparent;
-  margin-right: 10px;
-  border-radius: 0px 15px 15px 0px;
   color: #c0caf5;
 }
 
@@ -44,6 +43,11 @@ tooltip {
   border-radius: 15px;
 }
 
+#window {
+  margin-right: 10px;
+  border-radius: 0px 15px 15px 0px;
+}
+
 #backlight,
 #battery,
 #clock,
@@ -59,8 +63,8 @@ tooltip {
 #window,
 #workspaces {
   background-color: #24283b;
-  padding: 0px 8px;
-  margin: 8px 0px;
+  padding: 0px 10px;
+  margin: 5px 0px;
 }
 
 #workspaces {
