@@ -11,6 +11,9 @@ POWERLEVEL9K_MODE="awesome-patched"
 
 ulimit -n 65536 65536
 
+# Export swaysock to run from tmux
+export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock
+
 # Android emulation settings
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
