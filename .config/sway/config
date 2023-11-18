@@ -4,6 +4,7 @@
 
 # Inspiration:
 # - https://github.com/lokesh-krishna/dotfiles/tree/main
+# - specifically nord-v3 https://github.com/lokesh-krishna/dotfiles/tree/main/nord-v3
 
 set $mod Mod4
 
