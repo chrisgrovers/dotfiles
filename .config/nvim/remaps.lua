@@ -73,4 +73,6 @@ vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { noremap = true })
 -- { { Move highlighted lines } }
 vim.api.nvim_set_keymap('v', '<S-J>', ':m \'>+1<CR>gv', { silent = true })
 vim.api.nvim_set_keymap('v', '<S-K>', ':m \'<-2<CR>gv', { silent = true })
+vim.api.nvim_set_keymap('v', '<', '<gv', { silent = true })
+vim.api.nvim_set_keymap('v', '>', '>gv', { silent = true })
 
