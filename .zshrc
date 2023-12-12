@@ -77,7 +77,7 @@ alias cim='nvim'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(direnv hook zsh)"
 
-if [[ -f ~/.zsh/ ]]; then
+if [[ -d ~/.zsh/ ]]; then
   for FILE in ~/.zsh/*; do
       source $FILE
   done
