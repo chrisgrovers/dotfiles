@@ -77,22 +77,19 @@ alias cim='nvim'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(direnv hook zsh)"
 
-# if [[ -d ~/.zsh/ ]]; then
-#   for FILE in ~/.zsh/*; do
-#       source $FILE
-#   done
-# fi 
+for FILE in ~/.zsh/*; do
+  source $FILE
+done
 
-# Default Silver Searcher in the flesh
-# export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ignore Library -g ""'
 
-# Default RG
+# Default RG for fzf
 # --files: List files that would be searched but do not search
 # --no-ignore: Do not respect .gitignore, etc...
 # --hidden: Search hidden files and folders
 # --follow: Follow symlinks
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
 
 ulimit -n 10240
 

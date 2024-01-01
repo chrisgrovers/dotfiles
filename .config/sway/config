@@ -272,7 +272,8 @@ exec_always --no-startup-id feh --bg-scale $HOME/Wallpapers/neon-genesis.png
 exec_always --no-startup-id gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}, {'Xft/DPI', <196608>}, {'Xcursor/Size', <25000>}, {'Xcursor/size', <25000>}]"
 
 # custom configs
-exec_always --no-startup-id xrdb -merge /home/greg/.Xresources
+# Is this a goog config?
+# exec_always --no-startup-id xrdb -merge /home/greg/.Xresources
 
 #####################
 #### System shortcuts
@@ -280,9 +281,8 @@ exec_always --no-startup-id xrdb -merge /home/greg/.Xresources
 
 # Screenshots
 #interactive screenshot by pressing printscreen
-bindsym Print exec grim - | wl-copy
+# bindsym Print exec grim - | wl-copy
+bindsym Print exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 #crop-area screenshot by pressing Mod + printscreen
-bindsym $mod+Print exec gnome-screenshot -a
-
-# exec systemctl --user import-environment
-
+# bindsym $mod+Print exec slurp | grim - | wl-copy
+# bindsym $mod+shift+Print exec grim - | wl-copy

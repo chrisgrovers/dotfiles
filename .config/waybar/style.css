@@ -108,14 +108,3 @@ tooltip {
 #pulseaudio {
   color: #7aa2f7;
 }
-
-#custom-power {
-	color: #24283b;
-	background-color: #db4b4b;
-	border-radius: 5px;
-	margin-right: 10px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 0px;
-	padding: 5px 10px;
-}
