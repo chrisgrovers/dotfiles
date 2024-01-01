@@ -14,8 +14,14 @@ input "type:keyboard" {
 
 input "type:touchpad" {
     tap enabled
+
+		# Allow switching between workspaces with left and right swipes
+		# bindgesture swipe:right workspace prev
+		# bindgesture swipe:left workspace next
 }
 
+# bindgesture swipe:right workspace prev
+# bindgesture swipe:left workspace next
 focus_follows_mouse yes
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -146,7 +152,22 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t custom -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+# bindsym $mod+Shift+e exec swaynag -t custom -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout"
+mode $exit {
+    bindsym --to-code {
+        s exec systemctl suspend, mode "default"
+        p exec systemctl poweroff
+        r exec systemctl reboot
+        l exec swaymsg exit
+
+        Return mode "default"
+        Escape mode "default"
+        $mod+Shift+e mode "default"
+    }
+}
+
+bindsym --to-code $mod+Shift+e mode $exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -185,11 +206,11 @@ client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
 client.background       #242424
 
 # Import GTK settings
-exec_always $HOME/bin/import-gsettings \
-    gtk-theme:gtk-theme-name \
-    icon-theme:gtk-icon-theme-name \
-    cursor-theme:gtk-cursor-theme-name\
-    font-name:gtk-font-name
+# exec_always $HOME/bin/import-gsettings \
+#     gtk-theme:gtk-theme-name \
+#     icon-theme:gtk-icon-theme-name \
+#     cursor-theme:gtk-cursor-theme-name\
+#     font-name:gtk-font-name
 
 
 # Gaps settings
@@ -259,6 +280,9 @@ exec_always --no-startup-id xrdb -merge /home/greg/.Xresources
 
 # Screenshots
 #interactive screenshot by pressing printscreen
-bindsym Print exec gnome-screenshot -i 
+bindsym Print exec grim - | wl-copy
 #crop-area screenshot by pressing Mod + printscreen
 bindsym $mod+Print exec gnome-screenshot -a
+
+# exec systemctl --user import-environment
+
