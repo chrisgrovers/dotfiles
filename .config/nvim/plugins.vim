@@ -91,6 +91,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'lepture/vim-jinja'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " { { VimWiki  } }
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }

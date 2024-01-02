@@ -203,8 +203,9 @@ dashboard.section.header.val = ascii.get_random_global()
 dashboard.section.buttons.val = {
     dashboard.button( 'space f f', '  > Find file', ':cd $HOME/Workspace | Telescope find_files<CR>'),
     dashboard.button( 'space f g', '  > Find word', ':cd $HOME/Workspace | Telescope live_grep<CR>'),
-    dashboard.button( 'space f r', '  > Recent'   , ':Telescope resume<CR>'),
-    dashboard.button( 'space ,', '  > Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
+    dashboard.button( 'space f o', '  > Recent files', ':Telescope oldfiles<CR>'),
+    dashboard.button( 'space f b', '  > Bookmarks', ':Telescope marks<CR>'),
+    dashboard.button( 'space ,'  , '  > Settings' , ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>'),
     dashboard.button('c', ' Check health', ':checkhealth<CR>'),
     dashboard.button( 'q', '  > Quit NVIM', ':qa<CR>'),
 }
@@ -227,3 +228,7 @@ alpha.setup(dashboard.opts)
 require('alpha').setup(
   require'alpha.themes.dashboard'.config
 ) 
+
+
+-- { { INDENT BLANKLINE } }
+require("ibl").setup()
