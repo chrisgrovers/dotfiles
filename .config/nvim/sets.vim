@@ -28,5 +28,5 @@ set wildmode=longest:list           " get bash-like tab completions
 set completeopt=menu,menuone,noselect " nvim-cmp options
 set laststatus=1                    " Minimal window separation
 set showbreak=↪  
-set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
-
+set list
+set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨
