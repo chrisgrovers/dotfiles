@@ -120,15 +120,129 @@ require('nvim-tree').setup {
 -- { { NVIM-AUTOPAIRS } }
 require('nvim-autopairs').setup()
 
+-- { { TELESCOPE } }
+local lga_actions = require("telescope-live-grep-args.actions")
+local actions = require("telescope.actions")
+local action_state = require('telescope.actions.state')
+
+-- https://github.com/nvim-telescope/telescope.nvim/issues/1048#issuecomment-993956937
+local telescope_custom_actions = {}
+
+function telescope_custom_actions._multiopen(prompt_bufnr, open_cmd)
+    -- inspired from:
+    -- https://github.com/nvim-telescope/telescope.nvim/issues/1048#issuecomment-1679797700
+    local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
+    local multi = picker:get_multi_selection()
+    if not vim.tbl_isempty(multi) then
+      require('telescope.actions').close(prompt_bufnr)
+      for _, j in pairs(multi) do
+        if j.path ~= nil then
+          vim.cmd(string.format('%s %s', open_cmd, j.path))
+        end
+      end
+    else
+      require('telescope.actions').select_default(prompt_bufnr)
+    end
+
+end
+function telescope_custom_actions.multi_selection_open_vsplit(prompt_bufnr)
+    telescope_custom_actions._multiopen(prompt_bufnr, "vsplit")
+end
+function telescope_custom_actions.multi_selection_open_split(prompt_bufnr)
+    telescope_custom_actions._multiopen(prompt_bufnr, "split")
+end
+function telescope_custom_actions.multi_selection_open_tab(prompt_bufnr)
+    telescope_custom_actions._multiopen(prompt_bufnr, "tabe")
+end
+function telescope_custom_actions.multi_selection_open(prompt_bufnr)
+    telescope_custom_actions._multiopen(prompt_bufnr, "edit")
+end
+
+-- https://github.com/nvim-telescope/telescope.nvim/issues/1048#issuecomment-1679797700
+local select_one_or_multi = function(prompt_bufnr)
+  local picker = require('telescope.actions.state').get_current_picker(prompt_bufnr)
+  local multi = picker:get_multi_selection()
+  if not vim.tbl_isempty(multi) then
+    require('telescope.actions').close(prompt_bufnr)
+    for _, j in pairs(multi) do
+      if j.path ~= nil then
+        vim.cmd(string.format('%s %s', 'edit', j.path))
+      end
+    end
+  else
+    require('telescope.actions').select_default(prompt_bufnr)
+  end
+end
+
+local tm = {
+        -- live-grep-args configs
+        -- https://github.com/nvim-telescope/telescope-live-grep-args.nvim#configuration
+        ["<C-q>"] = lga_actions.quote_prompt(),
+        ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+        -- https://github.com/nvim-telescope/telescope.nvim/issues/1048#issuecomment-993956937
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<TAB>"] = actions.toggle_selection,
+        ["<C-TAB>"] = actions.toggle_selection + actions.move_selection_next,
+        ["<S-TAB>"] = actions.toggle_selection + actions.move_selection_previous,
+        ["<CR>"] = telescope_custom_actions.multi_selection_open,
+        ["<C-v>"] = telescope_custom_actions.multi_selection_open_vsplit,
+        ["<C-s>"] = telescope_custom_actions.multi_selection_open_split,
+        ["<C-t>"] = telescope_custom_actions.multi_selection_open_tab,
+        ["<C-DOWN>"] = require('telescope.actions').cycle_history_next,
+        ["<C-UP>"] = require('telescope.actions').cycle_history_prev,
+}
+
 require('telescope').setup {
   defaults = {
     mappings = {
-      i = {
-        ["<C-Down>"] = require('telescope.actions').cycle_history_next,
-        ["<C-Up>"] = require('telescope.actions').cycle_history_prev,
-      }
-    }
-  },
+      i = tm,
+      n = tm,
+    },
+
+    find_command = {
+      "rg",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+    },
+
+    -- Inspired by https://github.com/NvChad/NvChad/blob/v2.0/lua/plugins/configs/telescope.lua
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "ascending",
+    layout_strategy = "horizontal",
+    layout_config = {
+      horizontal = {
+        prompt_position = "top",
+        preview_width = 0.55,
+        results_width = 0.8,
+      },
+      vertical = {
+        mirror = false,
+      },
+      width = 0.87,
+      height = 0.90,
+      preview_cutoff = 120,
+    },
+    file_sorter = require("telescope.sorters").get_fuzzy_file,
+    file_ignore_patterns = { "node_modules" },
+    generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+    path_display = { "truncate" },
+    winblend = 0,
+    border = {},
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    color_devicons = true,
+    use_less = true,
+    set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    -- Developer configurations: Not meant for general override
+    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+  }
 }
 
 -- { { NVIM-CMP } } 
