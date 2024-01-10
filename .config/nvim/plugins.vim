@@ -38,6 +38,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 
 " { { Nvim-autopairs } }
 Plug 'windwp/nvim-autopairs'
