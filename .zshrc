@@ -20,6 +20,8 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
+# export XDG_CURRENT_DESKTOP=sway
+
 export HOMEBREW_NO_UPDATE_CLEANUP=1
 brewprefix=/usr/local/brew
 export PATH="$brewprefix/bin:$brewprefix/sbin:$PATH"

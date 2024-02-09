@@ -20,6 +20,8 @@ input "type:touchpad" {
 		# bindgesture swipe:left workspace next
 }
 
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
+
 # bindgesture swipe:right workspace prev
 # bindgesture swipe:left workspace next
 focus_follows_mouse yes
