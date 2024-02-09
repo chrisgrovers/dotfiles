@@ -92,6 +92,7 @@ done
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ulimit -n 10240
 
@@ -105,3 +106,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
