@@ -5,13 +5,19 @@
 # MAJOR INSPIRATION:
 # https://gist.github.com/cbrgm/ac1a0165f186eaec0bd804bd6f91160c
 
+# Start SKHD in the background. Work around issues:
+# https://github.com/koekeishiya/skhd/issues/103
+# https://github.com/koekeishiya/skhd/issues/139
+# thanks to @aSapien!!!
+skhd -c $HOME/.config/skhd/skhdrc
+
 yabai -m config debug_output on
 
 yabai -m config layout bsp
 
 # global settings
 yabai -m config mouse_follows_focus          on
-yabai -m config focus_follows_mouse          autofocus
+yabai -m config focus_follows_mouse          on
 
 # Monitor/Spaces setup
 yabai -m space 1 --label one

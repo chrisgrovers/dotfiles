@@ -5,7 +5,9 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 local actions = require('telescope.actions')
-local nvim_lsp = require('lspconfig')
+local lspconfig = require('lspconfig')
+local mason = require('mason')
+local mason_lsp = require('mason-lspconfig')
 local configs = require('lspconfig.configs')
 
 local on_attach = function(client, bufnr)
@@ -22,7 +24,7 @@ end
 --
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -264,6 +266,8 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
@@ -304,9 +308,21 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['tsserver'].setup {
-  capabilities = capabilities
-}
+-- require('lspconfig')['tsserver'].setup {
+--   capabilities = capabilities
+-- }
+
+mason.setup({})
+mason_lsp.setup({
+  ensure_installed = {"lua_ls", "markdown_oxide", "tsserver"},
+  handlers = {
+    function(server)
+      lspconfig[server].setup({
+        capabilities = capabilities,
+      })
+    end,
+  }
+})
 
 -- { { ALPHA-NVIM } }
 local alpha = require("alpha")
@@ -346,3 +362,24 @@ require('alpha').setup(
 
 -- { { INDENT BLANKLINE } }
 require("ibl").setup()
+
+
+-- require("markview").setup({
+--     buf_ignore = { "nofile" },
+--     modes = { "n", "no" },
+--
+--     options = {
+--         on_enable = {},
+--         on_disable = {}
+--     },
+--
+--     block_quotes = {},
+--     checkboxes = {},
+--     code_blocks = {},
+--     headings = {},
+--     horizontal_rules = {},
+--     inline_codes = {},
+--     links = {},
+--     list_items = {},
+--     tables = {}
+-- });
