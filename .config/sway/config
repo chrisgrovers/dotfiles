@@ -24,7 +24,8 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSO
 
 # bindgesture swipe:right workspace prev
 # bindgesture swipe:left workspace next
-focus_follows_mouse yes
+focus_follows_mouse always
+mouse_warping container
 
 # Font for window titles. Will also be used by the bar unless a different font
 font pango:System San Francisco Display 10

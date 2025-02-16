@@ -29,6 +29,7 @@ Plug 'MunifTanjim/nui.nvim'
 " { { Display colors } }
 Plug 'ap/vim-css-color'
 Plug 'chrisbra/Colorizer'
+Plug 'chrisbra/unicode.vim'
 
 " { { Nvim-tree } }
 Plug 'nvim-tree/nvim-web-devicons' " for file icons
