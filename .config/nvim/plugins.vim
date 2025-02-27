@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
 
 " { { Themes } }
 Plug 'folke/tokyonight.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " { { Greeting Page } }
 Plug 'goolord/alpha-nvim'
@@ -85,6 +86,10 @@ Plug 'onsails/lspkind-nvim'
 Plug 'folke/trouble.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
+
+" { { Better typing practice } }
+Plug 'nvzone/typr'
+Plug 'nvzone/volt'
 
 
 " { { Better syntax highlighting } }

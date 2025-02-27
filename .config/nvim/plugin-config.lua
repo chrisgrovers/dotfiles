@@ -324,6 +324,10 @@ mason_lsp.setup({
   }
 })
 
+-- { { TYPR } } 
+-- local typr = require('typr')
+-- typr.setup({})
+
 -- { { ALPHA-NVIM } }
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
