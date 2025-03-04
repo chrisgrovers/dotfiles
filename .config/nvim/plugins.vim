@@ -20,6 +20,7 @@ call plug#begin('~/.vim/plugged')
 
 " { { Themes } }
 Plug 'folke/tokyonight.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " { { Greeting Page } }
 Plug 'goolord/alpha-nvim'
@@ -73,19 +74,24 @@ Plug 'arthurxavierx/vim-caser'
 
 " { { LSP Config } }
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'onsails/lspkind-nvim'
-Plug 'folke/trouble.nvim'
-
-" For vsnip users
+Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'onsails/lspkind-nvim'
+Plug 'folke/trouble.nvim'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+
+" { { Better typing practice } }
+Plug 'nvzone/typr'
+Plug 'nvzone/volt'
+
 
 " { { Better syntax highlighting } }
 Plug 'leafgarland/typescript-vim'
@@ -94,6 +100,8 @@ Plug 'lepture/vim-jinja'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'lukas-reineke/indent-blankline.nvim'
+" TODO(banana) Fix treesitter issue with vimwiki lang....
+" Plug 'OXY2DEV/markview.nvim'
 
 " { { VimWiki  } }
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }

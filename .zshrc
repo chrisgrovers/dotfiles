@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -83,6 +83,8 @@ for FILE in ~/.zsh/*; do
   source $FILE
 done
 
+export LD_LIBRARY_PATH=$HOME/homebrew/lib:$LD_LIBRARY_PATH
+export PATH=$HOME/homebrew/bin:$PATH
 
 # Default RG for fzf
 # --files: List files that would be searched but do not search

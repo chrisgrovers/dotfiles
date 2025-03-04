@@ -17,10 +17,13 @@ vim.keymap.set('n', '<C-H>', '<C-W><C-H>', { noremap = true })
 
 -- { { For simple sizing of splits. } }
 
-vim.keymap.set('n', '<C-Down>', '<C-W>5-', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Up>', '<C-W>5+', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Right>', '<C-W>5>', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Left>', '<C-W>5<', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-Down>', '<C-W>5-', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-Up>', '<C-W>5+', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-Right>', '<C-W>5>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-Left>', '<C-W>5<', { noremap = true, silent = true })
+
+-- vim.keymap.set('n', '<C-Down>', ':VimwikiDiaryPrevDay', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<C-Up>', 'VimwikiDiaryNextDay', { noremap = true, silent = true })
 
 -- { { Reload settings without closing } }
 vim.keymap.set('n', '<Leader>r', ':so $MYVIMRC<CR>', { noremap = true })
@@ -33,8 +36,6 @@ vim.keymap.set('n', '<Leader>diary', ':put =strftime(\'# %a %b %d\')<CR> <BAR> :
 -- TODO Convert to vim.cmd
 -- vim.keymap.set('n', '<Leader>notes', function() vim.cmd(':r ~/notes/templates/notes.md<CR>') end, { noremap = true })
 -- vim.keymap.set('n', '<Leader>diary', function() vim.cmd(':r ~/notes/templates/diary.md<CR> <Leader>date') end, { noremap = true })
-vim.keymap.set('n', '<Leader>tps', ':r ~/notes/templates/tps.md<CR>', { noremap = true })
-vim.keymap.set('n', '<Leader>ntfe', ':r ~/notes/templates/note taking frontend.md<CR>', { noremap = true })
 
 -- Helpers
 vim.keymap.set('n', '<Leader>date', ':put =strftime(\'# %a %b %d\')<CR>', { noremap = true })

@@ -13,3 +13,6 @@
 [submodule "/Users/cgrovers/.config/LazyVim"]
 	path = /Users/cgrovers/.config/LazyVim
 	url = https://github.com/LazyVim/starter
+[submodule ".config/alacritty/themes"]
+	path = .config/alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme

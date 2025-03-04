@@ -15,7 +15,8 @@ com! FormatJSON %!python -m json.tool
 " Use :Telescope colorscheme to quick change any color schemes!!
 set termguicolors  " NeoSolarized requirement
 set background=dark
-color tokyonight   " Color scheme
+" color tokyonight   " Color scheme
+colorscheme catppuccin-mocha " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 set encoding=UTF-8 " Setting for vim-devicons
 
 
