@@ -12,9 +12,9 @@ if [ $OS = "linux-gnu" ]; then
   if [ -f "/etc/debian_version" ]; then
     echo ">doing debian things"
     INSTALL="sudo apt-get install"
-  elif [ -f "etc/arch-release"]; then
+  elif [ -f "/etc/arch-release" ]; then
     echo ">Arch linux detected"
-    INSTALL="pacman -S"
+    INSTALL="sudo pacman -S"
   fi
 elif [ $OS = "darwin"* ]; then
   echo "> All hail our Mac Overlords"
@@ -81,6 +81,8 @@ if [[ ! -d ".oh-my-zsh" ]]; then
   echo "> you must `exit` once complete"
   `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
   echo ">oh-my-zsh installed"
+fi
+if [[ ! -d ".oh-my-zsh/custom/themes/powerlevel10k" ]]; then
   `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
   echo ">pl10k installed"
   mv .zshrc.pre-oh-my-zsh .zshrc
@@ -107,6 +109,11 @@ if [[ ! -d ".vim/autoload" ]]; then
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
+if [[ ! `which fzf` ]]; then
+  echo "> installing FZF"
+  $INSTALL fzf
+fi
+
 if [[ ! `which rg` ]]; then
   echo "> BEYBLADES LET IT RIIIIPPP"
   $INSTALL ripgrep
@@ -127,6 +134,11 @@ if [[ ! `which tmux` ]]; then
   cd tmux
   sh autogen.sh
   ./configure && make
+fi
+# Install tpm - tmux plugin manager
+if [[ ! -d ".tmux/plugins/tpm" ]]; then
+  echo "> installing tmux plugin manager"
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # Install syncthing

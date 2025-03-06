@@ -69,7 +69,6 @@ export VISUAL=nvim
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias im='nvim'
-alias vim='nvim'
 alias vi='nvim'
 alias cim='nvim'
 # This doesn't work, since swap files are saved in my neovim directory
@@ -79,9 +78,11 @@ alias cim='nvim'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(direnv hook zsh)"
 
-for FILE in ~/.zsh/*; do
-  source $FILE
-done
+if [[ -d "~/.zsh" ]]; then
+  for FILE in ~/.zsh/*; do
+    source $FILE
+  done
+fi
 
 export LD_LIBRARY_PATH=$HOME/homebrew/lib:$LD_LIBRARY_PATH
 export PATH=$HOME/homebrew/bin:$PATH
@@ -94,7 +95,10 @@ export PATH=$HOME/homebrew/bin:$PATH
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [[ `which fzf` ]]; then 
+  source <(fzf --zsh)
+fi
+
 
 ulimit -n 10240
 

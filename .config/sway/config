@@ -28,7 +28,7 @@ focus_follows_mouse always
 mouse_warping container
 
 # Font for window titles. Will also be used by the bar unless a different font
-font pango:System San Francisco Display 10
+font pango:JetbrainsMonoNerdFont 10
 
 exec_always pkill kanshi; exec kanshi
 
