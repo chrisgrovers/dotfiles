@@ -1,6 +1,7 @@
+//@import "catppuccin-mocha"
 
 configuration{
-  modi: "drun,window,combi";
+  modi: "run,window,combi";
   icon-theme: "Oranchelo";
   show-icons: true;
   terminal: "alacritty";
@@ -14,8 +15,4 @@ configuration{
   sidebar-mode: true;
 }
 
-//@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
-//@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
-@theme "/usr/share/.dotfiles/rofi/catpuccin-mocha.rasi"
-
-
+@theme "catppuccin-default.rasi"
