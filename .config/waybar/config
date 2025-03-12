@@ -5,7 +5,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window", "custom/media"],
     "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "tray"],
+    "modules-right": ["idle_inhibitor", "custom/rotateleft", "custom/rotateright", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "battery", "battery#bat2", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -65,12 +65,12 @@
         "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
         "format-alt": "{temperatureF}°F {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
     },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
+        "format-icons": ["󰃚","󰃛","󰃜","󰃝","󰃞","󰃟","󰃠"],
     },
     "battery": {
         "states": {
@@ -79,7 +79,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon} ",
-        "format-charging": "{capacity}%  ",
+        "format-charging": "{capacity}% 󰂄 ",
         "format-plugged": "{capacity}%  ",
         "format-alt": "{time} {icon} ",
         // "format-good": "", // An empty format will hide the module
@@ -109,7 +109,7 @@
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
+            "headset": "󰋎",
             "phone": "",
             "portable": "",
             "car": "",
@@ -123,11 +123,19 @@
         "max-length": 40,
         "format-icons": {
             "spotify": "",
-            "default": "🎜"
+            "default": ""
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/rotateright": {
+        "format": "",
+        "on-click": "sway output - transform 90 clockwise",
+    },
+    "custom/rotateleft": {
+        "format": "",
+        "on-click": "sway output - transform 90 anticlockwise",
     },
 }
 

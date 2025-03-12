@@ -311,10 +311,10 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['ts_ls'].setup {
-  capabilities = capabilities
-}
 mason.setup({})
+-- require('lspconfig')['ts_ls'].setup {
+--   capabilities = capabilities
+-- }
 mason_lsp.setup({
   ensure_installed = {"lua_ls", "markdown_oxide", "ts_ls"},
   handlers = {

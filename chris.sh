@@ -119,6 +119,11 @@ if [[ ! `which rg` ]]; then
   $INSTALL ripgrep
 fi
 
+if [[ ! `which npm` ]]; then
+  echo "> installing npm"
+  $INSTALL npm
+fi
+
 # Install alacritty (optional, and I need to fix some bugs)
 # echo "> Would you like to install Alacritty? [y/n]"
 # read installAlacritty

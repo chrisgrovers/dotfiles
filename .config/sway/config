@@ -32,6 +32,10 @@ font pango:JetbrainsMonoNerdFont 10
 
 exec_always pkill kanshi; exec kanshi
 
+# Disabled in favor of rotate shortcuts, and waybar buttons
+# bindswitch tablet:on exec 'sway output - transform 270'
+bindswitch tablet:off exec 'sway output - transform 0'
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -43,7 +47,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # dmenu/program launcher
-bindsym $mod+d exec "rofi run -show drun"
+bindsym $mod+d exec rofi -show combi
 bindsym $mod+shift+d exec "rofi -show combi -combi-modi 'window,drun,ssh' -modi combi"
 
 # change focus
@@ -63,6 +67,10 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# Rotate screen
+bindsym $mod+Shift+Alt+right exec "sway output - transform 90 clockwise"
+bindsym $mod+Shift+Alt+left exec "sway output - transform 90 anticlockwise"
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -180,16 +188,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym j resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"

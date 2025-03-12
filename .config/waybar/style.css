@@ -61,6 +61,8 @@ tooltip {
 #tray,
 #temperature,
 #window,
+#custom-rotateright,
+#custom-rotateleft,
 #workspaces {
   background-color: #24283b;
   padding: 0px 10px;
