@@ -14,5 +14,17 @@ TERM = "xterm-256color"
 option_as_alt = "Both"
 
 [font]
-size = 10.0
+size = 11.0
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+
+[[hints.enabled]]
+# command         = "xdg-open" # On Linux/BSD
+command       = "open" # On macOS
+# command       = { program = "cmd", args = [ "/c", "start",  "" ] } # On Windows
+hyperlinks      = true
+post_processing = true
+persist         = true
+mouse.enabled   = true
+mouse.mods      = "Control|Shift" # "Control|Shift" is my preference
+binding         = { key = "O", mods = "Control|Shift" }
+regex           = "(ipfs:|ipns:|magnet:|go/|mailto:|gemini://|go‐pher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
