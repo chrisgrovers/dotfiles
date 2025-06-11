@@ -59,6 +59,7 @@ Plug 'tomtom/tcomment_vim'
 " Surround in parens/quotes/XML
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-obsession'
 
 " { { VERSION CONTROL } }
 " { { Git integration use :Git/:G for commands } }

@@ -74,11 +74,11 @@ require'nvim-treesitter.configs'.setup {
 
 -- { { LUALINE } }
 local status, lualine = pcall(require, "lualine")
-if (not status) then return end
+-- if (not status) then return end
 lualine.setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
+    theme = 'auto',
     section_separators = {'', ''},
     component_separators = {'', ''},
     disabled_filetypes = {}
@@ -89,7 +89,7 @@ lualine.setup {
     lualine_c = {'filename'},
     lualine_x = {
       { 'diagnostics', sources = {"nvim_diagnostic"}, symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '} },
-      'encoding',
+      'lsp_status',
       'filetype'
     },
     lualine_y = {'progress'},
