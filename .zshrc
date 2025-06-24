@@ -3,6 +3,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH="$HOME/neovim/bin:$PATH"
+
+# /run/user/969247/sway-ipc.969247.33409.sock
+
+# export SWAYSOCK="$(ls /run/user//sway-ipc..sock | head -n 1)"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -78,14 +83,14 @@ alias cim='nvim'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(direnv hook zsh)"
 
-if [[ -d "~/.zsh" ]]; then
+if [[ -d ~/.zsh ]]; then
   for FILE in ~/.zsh/*; do
     source $FILE
   done
 fi
 
-export LD_LIBRARY_PATH=$HOME/homebrew/lib:$LD_LIBRARY_PATH
-export PATH=$HOME/homebrew/bin:$PATH
+# export LD_LIBRARY_PATH=$HOME/homebrew/lib:$LD_LIBRARY_PATH
+# export PATH=$HOME/homebrew/bin:$PATH
 
 # Default RG for fzf
 # --files: List files that would be searched but do not search
@@ -113,3 +118,18 @@ config config --local status.showUntrackedFiles no
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+fixup_ssh_auth_sock() {
+  if [[ -n ${SSH_AUTH_SOCK} && ! -e ${SSH_AUTH_SOCK} ]]
+  then
+    local new_sock=$(echo /tmp/ssh-*/agent.*(=UNom[1]))
+     if [[ -n ${new_sock} ]]
+     then
+       export SSH_AUTH_SOCK=${new_sock}
+     fi
+  fi
+}
+if [[ -n ${SSH_AUTH_SOCK} ]]
+then
+  autoload -U add-zsh-hook
+  add-zsh-hook preexec fixup_ssh_auth_sock
+fi

@@ -6,6 +6,8 @@
 # - https://github.com/lokesh-krishna/dotfiles/tree/main
 # - specifically nord-v3 https://github.com/lokesh-krishna/dotfiles/tree/main/nord-v3
 
+exec "ssh-agent -a $SSH_AUTH_SOCK"
+
 set $mod Mod4
 
 input "type:keyboard" {
@@ -22,8 +24,8 @@ input "type:touchpad" {
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 
-# bindgesture swipe:right workspace prev
-# bindgesture swipe:left workspace next
+bindgesture swipe:4:right workspace prev
+bindgesture swipe:4:left workspace next
 focus_follows_mouse always
 mouse_warping container
 

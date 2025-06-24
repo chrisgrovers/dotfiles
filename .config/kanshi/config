@@ -1,3 +1,14 @@
-profile {
-  output eDP-1 mode 2160x1350 enable scale 1
+profile just_the_top {
+  output "Chimei Innolux Corporation 0x1450 Unknown" mode 1920x1200 position 0,0
+}
+
+profile home_default {
+  output "Chimei Innolux Corporation 0x1450 Unknown" disable
+  output "Samsung Electric Company LC49G95T H4ZR704096" mode 5120x1440 position 0,1440
+  output "Lenovo Group Limited LEN T32p-20 VNA766NB" mode 3840x2160 position 1300,0 scale 1.5
+}
+
+profile office_desk {
+  output "Lenovo Group Limited LEN T32p-20 VNA75F48" mode 3840x2160 position 0,0
+  output "Chimei Innolux Corporation 0x1450 Unknown" mode 1920x1200 position 3840,1500
 }

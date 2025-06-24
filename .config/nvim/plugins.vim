@@ -100,7 +100,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'lepture/vim-jinja'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'lukas-reineke/indent-blankline.nvim'
 " TODO(banana) Fix treesitter issue with vimwiki lang....
 " Plug 'OXY2DEV/markview.nvim'
 

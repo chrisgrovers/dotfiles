@@ -32,7 +32,7 @@ vim.keymap.set('n', '<Leader>r', ':so $MYVIMRC<CR>', { noremap = true })
 --
 -- Copy content of template to file
 vim.keymap.set('n', '<Leader>notes', ':r ~/notes/templates/notes.md<CR>', { noremap = true })
-vim.keymap.set('n', '<Leader>diary', ':put =strftime(\'# %a %b %d\')<CR> <BAR> :r ~/notes/templates/diary.md<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>diary', ':put =strftime(\'# %a %b %d, %Y\')<CR> <BAR> :r ~/notes/templates/diary.md<CR>', { noremap = true })
 -- TODO Convert to vim.cmd
 -- vim.keymap.set('n', '<Leader>notes', function() vim.cmd(':r ~/notes/templates/notes.md<CR>') end, { noremap = true })
 -- vim.keymap.set('n', '<Leader>diary', function() vim.cmd(':r ~/notes/templates/diary.md<CR> <Leader>date') end, { noremap = true })
