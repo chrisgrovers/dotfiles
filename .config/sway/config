@@ -22,6 +22,7 @@ input "type:touchpad" {
 		# bindgesture swipe:left workspace next
 }
 
+# Wallpaper
 output '*' bg ~/.config/wallpapers/evangelion-unit-01-outline.png center #1e1e2e
 
 
@@ -293,10 +294,6 @@ exec --no-startup-id syncthing -no-browser
 exec picom &
 # Set keymap with xmodmap
 # exec --no-startup-id xmodmap ~/.Xmodmap
-
-# wallpaper
-exec_always --no-startup-id feh --bg-scale $HOME/Wallpapers/neon-genesis.png
-exec_always --no-startup-id gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}, {'Xft/DPI', <196608>}, {'Xcursor/Size', <25000>}, {'Xcursor/size', <25000>}]"
 
 # custom configs
 # Is this a goog config?
