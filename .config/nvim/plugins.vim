@@ -28,9 +28,9 @@ Plug 'MaximilianLloyd/ascii.nvim'
 Plug 'MunifTanjim/nui.nvim'
 
 " { { Display colors } }
-Plug 'ap/vim-css-color'
-Plug 'chrisbra/Colorizer'
-Plug 'chrisbra/unicode.vim'
+" Plug 'ap/vim-css-color'
+Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'chrisbra/unicode.vim'
 
 " { { Nvim-tree } }
 Plug 'nvim-tree/nvim-web-devicons' " for file icons

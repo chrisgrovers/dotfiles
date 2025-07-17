@@ -63,6 +63,7 @@ tooltip {
 #window,
 #custom-rotateright,
 #custom-rotateleft,
+#custom-notification
 #workspaces {
   background-color: #24283b;
   padding: 0px 10px;
@@ -109,4 +110,13 @@ tooltip {
 
 #pulseaudio {
   color: #7aa2f7;
+}
+
+#tray {
+  background: transparent;
+}
+
+#custom-notification {
+  color: #7aa2f7;
+  margin-right: 15px;
 }

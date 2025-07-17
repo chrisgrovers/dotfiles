@@ -27,6 +27,7 @@ set tabstop=2                       " number of columns occupied by a tab charac
 set wildmode=longest:list           " get bash-like tab completions
 set completeopt=menu,menuone,noselect " nvim-cmp options
 set laststatus=1                    " Minimal window separation
+set termguicolors  " NeoSolarized requirement
 set showbreak=↪  
 set list
 set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨

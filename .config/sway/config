@@ -22,6 +22,9 @@ input "type:touchpad" {
 		# bindgesture swipe:left workspace next
 }
 
+output '*' bg ~/.config/wallpapers/evangelion-unit-01-outline.png center #1e1e2e
+
+
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 
 bindgesture swipe:4:right workspace prev
@@ -44,6 +47,8 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -166,13 +171,14 @@ bindsym $mod+Shift+r restart
 
 # Exit sway (logs you out of your Wayland session)
 # bindsym $mod+Shift+e exec swaynag -t custom -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout"
+set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout [x]lock"
 mode $exit {
     bindsym --to-code {
-        s exec systemctl suspend, mode "default"
+        s exec swaylock -f && systemctl suspend, mode "default"
         p exec systemctl poweroff
         r exec systemctl reboot
         l exec swaymsg exit
+        x exec swaylock -f
 
         Return mode "default"
         Escape mode "default"
@@ -245,9 +251,20 @@ bindsym $mod+shift+x exec swaylock
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+# exec swayidle -w \
+#        timeout 300 'swaylock -f' \
+#        before-sleep 'swaylock -f'
+
 exec swayidle -w \
-       timeout 300 'swaylock -f' \
-       before-sleep 'swaylock -f'
+    timeout 10 'swaymsg "output * "I\'m getting kinda tired. I think I\ll go home now" && systemctl suspend' \
+    after-resume 'swaymsg "output * power on"' \
+    before-sleep 'swaylock -f'
+
+# exec swayidle -w\
+#     timeout 300 'systemctl suspend' \
+#     after-resume 'swaymsg "output * power on"' \
+#     before-sleep $locker\
+#     lock $locker
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
