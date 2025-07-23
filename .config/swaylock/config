@@ -2,6 +2,7 @@ ignore-empty-password
 show-keyboard-layout
 indicator-caps-lock
 
+image=~/.config/wallpapers/evangelion-unit-01-outline.png
 color=24283b
 font="Inter 14"
 indicator-radius=80

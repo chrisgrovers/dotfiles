@@ -307,6 +307,7 @@ exec picom &
 #interactive screenshot by pressing printscreen
 # bindsym Print exec grim - | wl-copy
 bindsym Print exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+bindsym $mod+shift+g exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 #crop-area screenshot by pressing Mod + printscreen
 # bindsym $mod+Print exec slurp | grim - | wl-copy
 # bindsym $mod+shift+Print exec grim - | wl-copy
