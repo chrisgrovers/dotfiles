@@ -7,6 +7,11 @@ vim.g.mapleader = " "
 -- { { Ez access to settings } }
 
 vim.keymap.set('n', '<Leader>,', ':e $MYVIMRC<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>,v', ':e $MYVIMRC<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>,vr', ':e ~/.config/nvim/remaps.lua<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>,vp', ':e ~/.config/nvim/plugins.vim<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>,t', ':e ~/.config/tmux/.tmux.conf<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>,s', ':e ~/.config/sway/config<CR>', { noremap = true })
 
 -- { { Split Navigation shortcuts } }
 
