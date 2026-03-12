@@ -12,6 +12,7 @@ vim.keymap.set('n', '<Leader>,vr', ':e ~/.config/nvim/remaps.lua<CR>', { noremap
 vim.keymap.set('n', '<Leader>,vp', ':e ~/.config/nvim/plugins.vim<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>,t', ':e ~/.config/tmux/.tmux.conf<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>,s', ':e ~/.config/sway/config<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>,z', ':e ~/.zshrc<CR>', { noremap = true })
 
 -- { { Split Navigation shortcuts } }
 
