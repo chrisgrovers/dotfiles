@@ -46,7 +46,7 @@ Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 Plug 'windwp/nvim-autopairs'
 
 " { { Treesitter } }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': 'master'}
 Plug 'andymass/vim-matchup'
 
 " { { tComm, file type sensible comments } }
@@ -99,14 +99,17 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'lepture/vim-jinja'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-" Plug 'lukas-reineke/indent-blankline.nvim'
-" TODO(banana) Fix treesitter issue with vimwiki lang....
-" Plug 'OXY2DEV/markview.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 " { { VimWiki  } }
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'mattn/calendar-vim'
+
+" { { Neorg } }
+Plug 'nvim-neorg/neorg'
+Plug 'nvim-neorg/lua-utils.nvim'
+Plug 'nvim-neotest/nvim-nio'
+Plug 'pysan3/pathlib.nvim'
 
 " { { Auto close brackets/quotes } }
 Plug 'hoob3rt/lualine.nvim'

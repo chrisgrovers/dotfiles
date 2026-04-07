@@ -24,42 +24,36 @@ end
 --
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
-
+  ensure_installed = {
+    "bash",
+    "c",
+    "css",
+    "fish",
+    "html",
+    "json",
+    "jinja",
+    "lua",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "query",
+    "tsx",
+    "typescript",
+    "vim",
+    "vimdoc",
+    "yaml",
+ },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
-
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
-
   -- List of parsers to ignore installing (for "all")
   ignore_install = { "javascript" },
-
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
   highlight = {
     enable = true,
-
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- list of language that will be disabled
     disable = { "c", "rust" },
     -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-    disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-            return true
-        end
-    end,
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
   matchup = {
@@ -124,6 +118,37 @@ require('nvim-tree').setup {
 
 -- { { NVIM-AUTOPAIRS } }
 require('nvim-autopairs').setup()
+
+-- { { NVIM-WEB-DEVICONS } }
+require('nvim-web-devicons').setup({})
+
+-- { { RENDER-MARKDOWN } }
+require('render-markdown').setup({
+  file_types = { 'markdown', 'vimwiki' },
+  latex = { enabled = false },
+  html = { enabled = false },
+  anti_conceal = { enabled = true },
+  heading = {
+    enabled = true,
+    sign = true,
+    icons = { '󰲡 ', '󰲣 ', '󰲥 ', '󰲧 ', '󰲩 ', '󰲫 ' },
+  },
+  code = {
+    enabled = true,
+    sign = true,
+    style = 'full',
+    position = 'left',
+    width = 'block',
+    left_pad = 0,
+    right_pad = 0,
+    min_width = 0,
+    border = 'thin',
+    above = '▄',
+    below = '▀',
+    highlight = 'RenderMarkdownCode',
+    highlight_inline = 'RenderMarkdownCodeInline',
+  },
+})
 
 -- { { TELESCOPE } }
 local lga_actions = require("telescope-live-grep-args.actions")
@@ -360,9 +385,60 @@ end
 dashboard.section.footer.val = footer()
 alpha.setup(dashboard.opts)
 
--- { { ALPHA-NVIM } }
-require('alpha').setup(
-  require'alpha.themes.dashboard'.config
-) 
-
 require('colorizer').setup()
+
+-- { { CATPPUCCIN } }
+require("catppuccin").setup({
+    integrations = {
+        render_markdown = true,
+        neorg = true,
+        treesitter = true,
+        native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = { "italic" },
+                hints = { "italic" },
+                warnings = { "italic" },
+                information = { "italic" },
+            },
+            underlines = {
+                errors = { "underline" },
+                hints = { "underline" },
+                warnings = { "underline" },
+                information = { "underline" },
+            },
+        },
+    }
+})
+
+-- { { NEORG } }
+local neorg_ok, neorg = pcall(require, "neorg")
+if neorg_ok then
+  neorg.setup({
+    load = {
+      ["core.defaults"] = {},
+      ["core.concealer"] = {},
+      ["core.keybinds"] = {
+        config = {
+          default_keybinds = true,
+        }
+      },
+      ["core.dirman"] = {
+        config = {
+          workspaces = {
+              work = "~/notes/work",
+              personal = "~/notes/personal",
+          },
+          default_workspace = "work",
+        },
+      },
+      ["core.journal"] = {
+        config = {
+          workspace = "work",
+        }
+      },
+    },
+  })
+  -- Set global keybind for journal
+  vim.keymap.set('n', '<Leader>nn', ':Neorg journal today<CR>', { noremap = true, silent = true })
+end

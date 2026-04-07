@@ -31,3 +31,4 @@ set termguicolors  " NeoSolarized requirement
 set showbreak=↪  
 set list
 set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set conceallevel=2
