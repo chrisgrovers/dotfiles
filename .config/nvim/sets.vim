@@ -4,7 +4,7 @@
 filetype plugin indent on           " allows auto-indenting depending on file type
 runtime macros/matchit.vim          " Enhances '%' functionality to jump to matching brackets/tags
 set autoindent                      " indent a new line the same amount as the line just typed
-set clipboard+=unnamedplus          " ALWAYS use system clipboard
+set clipboard=unnamedplus          " ALWAYS use system clipboard
 set colorcolumn=80                  " Show max width
 set directory^=~/.config/nvim/swap/ " Swap file directory
 set expandtab                       " converts tabs to white space
@@ -31,3 +31,4 @@ set termguicolors  " NeoSolarized requirement
 set showbreak=↪  
 set list
 set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set conceallevel=2

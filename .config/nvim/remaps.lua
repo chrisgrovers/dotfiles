@@ -12,6 +12,7 @@ vim.keymap.set('n', '<Leader>,vr', ':e ~/.config/nvim/remaps.lua<CR>', { noremap
 vim.keymap.set('n', '<Leader>,vp', ':e ~/.config/nvim/plugins.vim<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>,t', ':e ~/.config/tmux/.tmux.conf<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>,s', ':e ~/.config/sway/config<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>,z', ':e ~/.zshrc<CR>', { noremap = true })
 
 -- { { Split Navigation shortcuts } }
 
@@ -37,7 +38,16 @@ vim.keymap.set('n', '<Leader>r', ':so $MYVIMRC<CR>', { noremap = true })
 --
 -- Copy content of template to file
 vim.keymap.set('n', '<Leader>notes', ':r ~/notes/templates/notes.md<CR>', { noremap = true })
-vim.keymap.set('n', '<Leader>diary', ':put =strftime(\'# %a %b %d, %Y\')<CR> <BAR> :r ~/notes/templates/diary.md<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>diary', function()
+  local ft = vim.bo.filetype
+  if ft == 'norg' then
+    vim.cmd('r ~/notes/templates/diary.norg')
+  else
+    -- Default to Markdown/VimWiki behavior
+    vim.cmd('put =strftime(\'# %a %b %d, %Y\')')
+    vim.cmd('r ~/notes/templates/diary.md')
+  end
+end, { noremap = true, desc = 'Insert diary template' })
 -- TODO Convert to vim.cmd
 -- vim.keymap.set('n', '<Leader>notes', function() vim.cmd(':r ~/notes/templates/notes.md<CR>') end, { noremap = true })
 -- vim.keymap.set('n', '<Leader>diary', function() vim.cmd(':r ~/notes/templates/diary.md<CR> <Leader>date') end, { noremap = true })

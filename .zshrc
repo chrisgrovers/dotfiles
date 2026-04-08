@@ -46,6 +46,9 @@ source $ZSH/oh-my-zsh.sh
 # manually set language environment
 export LANG=en_US.UTF-8
 
+export EDITOR=nvim
+export VISUAL=nvim
+
 # NVIM SWITCHER
 # https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
 alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"

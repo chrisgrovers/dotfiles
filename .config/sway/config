@@ -25,16 +25,16 @@ input "type:touchpad" {
 # Wallpaper
 output '*' bg ~/.config/wallpapers/evangelion-unit-01-outline.png center #1e1e2e
 
+# Float windows
+for_window [app_id="chrome-nngceckbapebfimnlniiiahkandclblb-Default"] floating enabled
 
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
+exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr
 
-bindgesture swipe:4:right workspace prev
-bindgesture swipe:4:left workspace next
+bindgesture swipe:4:right workspace next
+bindgesture swipe:4:left workspace prev
 focus_follows_mouse always
 mouse_warping container
-
-# Font for window titles. Will also be used by the bar unless a different font
-font pango:JetbrainsMonoNerdFont 10
 
 exec_always pkill kanshi; exec kanshi
 
@@ -75,6 +75,20 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# move workspace
+bindsym $mod+Control+Shift+l move workspace to output right
+bindsym $mod+Control+Shift+h move workspace to output left
+bindsym $mod+Control+Shift+j move workspace to output down
+bindsym $mod+Control+Shift+k move workspace to output up
+
+# move workspace with cursor keys
+bindsym $mod+Control+Shift+Right move workspace to output right
+bindsym $mod+Control+Shift+Left move workspace to output left
+bindsym $mod+Control+Shift+Down move workspace to output down
+bindsym $mod+Control+Shift+Up move workspace to output up
+
+
 
 # Rotate screen
 bindsym $mod+Shift+Alt+right exec "sway output - transform 90 clockwise"
@@ -174,17 +188,18 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec swaynag -t custom -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout [x]lock"
 mode $exit {
-    bindsym --to-code {
-        s exec swaylock -f && systemctl suspend, mode "default"
-        p exec systemctl poweroff
-        r exec systemctl reboot
-        l exec swaymsg exit
-        x exec swaylock -f
+  bindsym --to-code {
+    s exec swaylock -f && systemctl suspend, mode "default"
+    p exec systemctl poweroff
+    r exec systemctl reboot
+    l exec swaymsg exit
+    x exec swaylock -f
 
-        Return mode "default"
-        Escape mode "default"
-        $mod+Shift+e mode "default"
-    }
+    Return mode "default"
+    Escape mode "default"
+    Caps_Lock mode "default"
+    $mod+Shift+e mode "default"
+  }
 }
 
 bindsym --to-code $mod+Shift+e mode $exit
@@ -252,20 +267,11 @@ bindsym $mod+shift+x exec swaylock
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
-# exec swayidle -w \
-#        timeout 300 'swaylock -f' \
-#        before-sleep 'swaylock -f'
-
-exec swayidle -w \
-    timeout 10 'swaymsg "output * "I\'m getting kinda tired. I think I\ll go home now" && systemctl suspend' \
-    after-resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f'
-
-# exec swayidle -w\
-#     timeout 300 'systemctl suspend' \
-#     after-resume 'swaymsg "output * power on"' \
-#     before-sleep $locker\
-#     lock $locker
+exec --no-startup-id swayidle -w \
+    timeout 600 'swaylock -f' \
+    timeout 900 'systemctl suspend' \
+    before-sleep 'swaylock -f' \
+    lock 'swaylock -f'
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -290,8 +296,9 @@ bindsym shift+XF86MonBrightnessUp exec --no-startup-id brightnessctl set +1%
 bindsym shift+XF86MonBrightnessDown exec --no-startup-id brightnessctl set 1%-
 
 # Startup Tasks
-exec --no-startup-id syncthing -no-browser
-exec picom &
+exec_always --no-startup-id wl-paste --type text --watch cliphist store
+exec_always --no-startup-id wl-paste --type image --watch cliphist store
+# exec --no-startup-id syncthing -no-browser
 # Set keymap with xmodmap
 # exec --no-startup-id xmodmap ~/.Xmodmap
 
@@ -302,6 +309,9 @@ exec picom &
 #####################
 #### System shortcuts
 #####################
+
+# Clip history
+bindsym $mod+p exec --no-startup-id cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
 # Screenshots
 #interactive screenshot by pressing printscreen

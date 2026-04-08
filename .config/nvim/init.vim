@@ -29,10 +29,10 @@ endif
 " https://github.com/neovim/neovim/issues/3702
 
 " copy the current text selection to the system clipboard
-" if has('gui_running') || has('nvim') && exists('$DISPLAY')
-"   noremap <Leader>y "+y
-" else
-"   " copy to attached terminal using the yank(1) script:
-"   " https://github.com/sunaku/home/blob/master/bin/yank
-"   noremap <silent> <Leader>y y:call system('osc52_yank > /dev/tty', @0)<Return>
-" endif
+if has('gui_running') || has('nvim') && exists('$DISPLAY')
+  noremap <Leader>y "+y
+else
+  " copy to attached terminal using the yank(1) script:
+  " https://github.com/sunaku/home/blob/master/bin/yank
+  noremap <silent> <Leader>y y:call system('osc52_yank > /dev/tty', @0)<Return>
+endif
