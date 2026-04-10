@@ -38,9 +38,16 @@ mouse_warping container
 
 exec_always pkill kanshi; exec kanshi
 
-# Disabled in favor of rotate shortcuts, and waybar buttons
-# bindswitch tablet:on exec 'sway output - transform 270'
-bindswitch tablet:off exec 'sway output - transform 0'
+# Tablet Mode Automation
+bindswitch tablet:on exec "swaymsg output eDP-1 scale 3.0 && pkill wvkbd; wvkbd-mobintl --bg & swaymsg input '1:1:AT_Translated_Set_2_keyboard' events disabled; swaymsg input '1739:52824:SYNA8008:00_06CB:CE58_Touchpad' events disabled"
+bindswitch tablet:off exec "swaymsg output eDP-1 scale 2.0 && pkill wvkbd; swaymsg input '1:1:AT_Translated_Set_2_keyboard' events enabled; swaymsg input '1739:52824:SYNA8008:00_06CB:CE58_Touchpad' events enabled"
+
+# Touch Gestures
+exec lisgd -d /dev/input/event11 -g "1,BT,BT,U,*,pkill -USR1 wvkbd-mobintl"
+
+# Lock screen on lid close
+bindswitch lid:on exec swaylock -f
+
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position

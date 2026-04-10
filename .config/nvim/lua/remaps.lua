@@ -17,6 +17,10 @@ vim.keymap.set('n', '<C-K>', '<C-W><C-K>', { noremap = true })
 vim.keymap.set('n', '<C-L>', '<C-W><C-L>', { noremap = true })
 vim.keymap.set('n', '<C-H>', '<C-W><C-H>', { noremap = true })
 
+
+vim.api.nvim_set_option("clipboard", "unnamed")
+
+
 -- { { For simple sizing of splits. } }
 
 -- vim.keymap.set('n', '<C-Down>', '<C-W>5-', { noremap = true, silent = true })
