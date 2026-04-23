@@ -1,15 +1,11 @@
 -- ======== REMAP KEYS ========
 --
--- { { Leader key } }
-
-vim.g.mapleader = " "
-
 -- { { Ez access to settings } }
 
 vim.keymap.set('n', '<Leader>,', ':e $MYVIMRC<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>,v', ':e $MYVIMRC<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>,vr', ':e ~/.config/nvim/remaps.lua<CR>', { noremap = true })
-vim.keymap.set('n', '<Leader>,vp', ':e ~/.config/nvim/plugins.vim<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>,vp', ':e ~/.config/nvim/lua/plugins.lua<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>,t', ':e ~/.config/tmux/.tmux.conf<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>,s', ':e ~/.config/sway/config<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>,z', ':e ~/.zshrc<CR>', { noremap = true })
@@ -32,7 +28,13 @@ vim.keymap.set('n', '<C-H>', '<C-W><C-H>', { noremap = true })
 -- vim.keymap.set('n', '<C-Up>', 'VimwikiDiaryNextDay', { noremap = true, silent = true })
 
 -- { { Reload settings without closing } }
-vim.keymap.set('n', '<Leader>r', ':so $MYVIMRC<CR>', { noremap = true })
+vim.keymap.set('n', '<Leader>r', function()
+    vim.cmd('source ~/.config/nvim/sets.vim')
+    -- We can't re-require lua modules easily once they are cached,
+    -- but we can re-source the specific remaps file
+    vim.cmd('source ~/.config/nvim/lua/remaps.lua')
+    print("Settings and Remaps reloaded!")
+end, { noremap = true, desc = 'Reload settings and remaps' })
 
 -- { { Notes Templates } }
 --
@@ -56,7 +58,10 @@ end, { noremap = true, desc = 'Insert diary template' })
 vim.keymap.set('n', '<Leader>date', ':put =strftime(\'# %a %b %d\')<CR>', { noremap = true })
 
 -- { { File Explorer } }
--- NvimTree
+-- Oil.nvim (Modern netrw replacement)
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
+-- NvimTree (Keeping it as a backup)
 vim.keymap.set('n', '<Leader>jk', ':NvimTreeToggle<CR>', { noremap = true })
 vim.keymap.set('n', '<Leader>jl', ':NvimTreeFindFile<CR>', { noremap = true })
 
