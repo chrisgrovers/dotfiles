@@ -192,7 +192,7 @@ return {
     build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { "bash", "c", "lua", "markdown", "markdown_inline", "vim", "vimdoc", "norg", "python", "typescript", "tsx", "javascript", "html", "css", "json", "yaml", "jj" },
+        ensure_installed = { "bash", "c", "lua", "markdown", "markdown_inline", "vim", "vimdoc", "norg", "python", "typescript", "tsx", "javascript", "html", "css", "json", "yaml" },
         highlight = { enable = true },
         matchup = {
           enable = true,
@@ -352,7 +352,6 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "nvim-tree/nvim-web-devicons",
-      "zbirenbaum/copilot.lua",
     },
   }
 }
