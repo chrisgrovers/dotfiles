@@ -1,3 +1,5 @@
+# Safeguard to prevent bash from sourcing this file
+if [ -z "$ZSH_VERSION" ]; then return; fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -136,3 +138,8 @@ then
   autoload -U add-zsh-hook
   add-zsh-hook preexec fixup_ssh_auth_sock
 fi
+
+# Fix ulimit issue (File size limit was too low)
+ulimit -f unlimited
+
+
