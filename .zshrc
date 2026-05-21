@@ -2,21 +2,16 @@
 if [ -z "$ZSH_VERSION" ]; then return; fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH="/home/banana/.local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/neovim/bin:$PATH"
 
-# /run/user/969247/sway-ipc.969247.33409.sock
-
-# export SWAYSOCK="$(ls /run/user//sway-ipc..sock | head -n 1)"
-
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 POWERLEVEL9K_MODE="awesome-patched"
-
-ulimit -n 65536 65536
 
 # Export swaysock to run from tmux
 export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock

@@ -43,7 +43,11 @@ bindswitch tablet:on exec "swaymsg output eDP-1 scale 3.0 && pkill wvkbd; wvkbd-
 bindswitch tablet:off exec "swaymsg output eDP-1 scale 2.0 && pkill wvkbd; swaymsg input '1:1:AT_Translated_Set_2_keyboard' events enabled; swaymsg input '1739:52824:SYNA8008:00_06CB:CE58_Touchpad' events enabled"
 
 # Touch Gestures
-exec lisgd -d /dev/input/event11 -g "1,BT,BT,U,*,pkill -USR1 wvkbd-mobintl"
+exec lisgd -d /dev/input/event11 \
+    -g "1,BT,BT,U,*,pkill -USR1 wvkbd-mobintl" \
+    -g "1,LR,L,*,swaymsg workspace prev" \
+    -g "1,RL,R,*,swaymsg workspace next" \
+    -g "1,UD,T,*,swaync-client -t -sw"
 
 # Lock screen on lid close
 bindswitch lid:on exec swaylock -f
